@@ -1,0 +1,12 @@
+{
+  "name": "project-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "dependencies": {
+    "yaml": "^2.8.4"
+  }
+}

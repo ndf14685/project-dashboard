@@ -1,0 +1,4 @@
+schema_version: 1
+local_paths:
+  careerops: /absolute/path/to/careerops
+  project-dashboard: /absolute/path/to/project-dashboard

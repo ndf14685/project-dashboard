@@ -1,0 +1,31 @@
+schema_version: 1
+project_id: careerops
+name: CareerOps
+stage: active
+priority: high
+effort: large
+progress_pct: 42
+health: yellow
+summary: >-
+  Producto activo. Hay avance en diseño del seguimiento de agentes y reportes,
+  pero falta cerrar la capa operativa del dashboard y costos.
+current_focus:
+  - definir dashboard de agentes
+  - cerrar esquema de costos
+  - automatizar reportes útiles
+pending:
+  - definir pipeline de seguimiento diario
+  - decidir estructura de métricas por agente
+next_action: diseñar pipeline diario de seguimiento y consolidación
+blockers: []
+needs_decision: true
+can_delegate: true
+quick_win: bosquejar modelo de métricas y resumen diario
+last_human_update: 2026-05-03T18:40:00-03:00
+target_date: 2026-05-17
+links:
+  repo: https://github.com/example/careerops
+  topic: telegram://topic/1417
+  docs: https://docs.example.local/careerops
+notes: >-
+  El dashboard de portfolio puede servir como patrón reutilizable.

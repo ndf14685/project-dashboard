@@ -1,0 +1,31 @@
+schema_version: 1
+project_id: project-dashboard
+name: Project Dashboard
+stage: active
+priority: high
+effort: medium
+progress_pct: 35
+health: green
+summary: >-
+  Ya genera snapshot/HTML, valida datos básicos y quedó listo el workflow de publicación a GitHub Pages.
+current_focus:
+  - formalizar schemas v1
+  - sumar señales externas opcionales
+  - probar publicación end-to-end
+pending:
+  - configurar GitHub Pages en el repo remoto
+  - agregar collector opcional de PRs/issues/CI
+  - definir reglas de atención y recordatorios
+next_action: validar deploy real en GitHub Pages y cerrar schemas formales
+blockers: []
+needs_decision: false
+can_delegate: true
+quick_win: conectar el repo remoto real y verificar la URL publicada
+last_human_update: 2026-05-06T02:58:00-03:00
+target_date: 2026-05-12
+links:
+  repo: https://github.com/ndf14685/project-dashboard
+  topic: telegram://topic/1417
+  site: https://www.nestorfleitas.ar/project-dashboard/
+notes: >-
+  El MVP ya cubre dashboard estático con señales híbridas y avisos de calidad de datos.

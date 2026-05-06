@@ -1,0 +1,39 @@
+schema_version: 1
+projects:
+  - id: careerops
+    name: CareerOps
+    owner: ndf
+    type: product
+    priority: high
+    visibility: internal
+    status_source:
+      type: repo_file
+      location: .project/PROJECT_STATUS.yaml
+    repos:
+      - slug: carrerops
+    topics:
+      - telegram:-1003958513253/1417
+    links:
+      repo: https://github.com/ndf14685/carrerops
+      topic: telegram://topic/1417
+      docs: https://github.com/ndf14685/carrerops#readme
+    tags: [careerops, dashboard, product]
+
+  - id: project-dashboard
+    name: Project Dashboard
+    owner: ndf
+    type: infra
+    priority: high
+    visibility: internal
+    status_source:
+      type: repo_file
+      location: .project/PROJECT_STATUS.yaml
+    repos:
+      - slug: project-dashboard
+    topics:
+      - telegram:-1003958513253/1417
+    links:
+      repo: https://github.com/ndf14685/project-dashboard
+      topic: telegram://topic/1417
+      site: https://www.nestorfleitas.ar/project-dashboard/
+    tags: [infra, reporting, portfolio]

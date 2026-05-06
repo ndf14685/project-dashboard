@@ -1,0 +1,146 @@
+{
+  "generated_at": "2026-05-06T06:10:47.322Z",
+  "summary": {
+    "total": 2,
+    "active": 2,
+    "paused": 0,
+    "blocked": 0,
+    "stale": 0,
+    "needs_decision": 0,
+    "high_stale_risk": 0,
+    "warnings": 0,
+    "avg_score": 70,
+    "total_estimated_load": 8
+  },
+  "issues": [],
+  "projects": [
+    {
+      "id": "careerops",
+      "name": "CareerOps",
+      "owner": "ndf",
+      "type": "product",
+      "priority": "high",
+      "stage": "active",
+      "effort": "large",
+      "progress_pct": 55,
+      "health": "green",
+      "summary": "MVP funcional de copiloto de búsqueda laboral con backend, frontend e ingesta local; toca consolidar operación diaria y reporting ejecutivo.",
+      "current_focus": [
+        "estabilizar flujo diario de agentes",
+        "consolidar reportes útiles y presupuesto",
+        "mejorar visibilidad ejecutiva del pipeline"
+      ],
+      "pending": [
+        "definir alertas/resúmenes diarios finales",
+        "validar métricas más accionables del dashboard",
+        "endurecer operación de ingestión y scoring"
+      ],
+      "next_action": "conectar el dashboard con reporting diario y priorización visible de vacantes",
+      "blockers": [],
+      "needs_decision": false,
+      "can_delegate": true,
+      "quick_win": "exponer métricas resumidas para seguimiento diario en el dashboard",
+      "links": {
+        "repo": "https://github.com/ndf14685/carrerops",
+        "topic": "telegram://topic/1417",
+        "docs": "https://github.com/ndf14685/carrerops#readme"
+      },
+      "topics": [
+        "telegram:-1003958513253/1417"
+      ],
+      "tags": [
+        "careerops",
+        "dashboard",
+        "product"
+      ],
+      "repo_count": 1,
+      "repos": [
+        "careerops"
+      ],
+      "last_human_update": "2026-05-06T03:02:00-03:00",
+      "last_repo_activity_at": "2026-05-05T04:01:43-03:00",
+      "days_since_human_update": 0,
+      "days_since_repo_activity": 0,
+      "freshness": "fresh",
+      "temperature": "hot",
+      "stale_risk": "low",
+      "confidence": 0.95,
+      "score": 70,
+      "reasons": [
+        "última actualización humana hace 0 día(s)",
+        "última actividad de repo hace 0 día(s)",
+        "tiene próxima acción definida"
+      ],
+      "warnings": [],
+      "status_source": {
+        "type": "repo_file",
+        "location": ".project/PROJECT_STATUS.yaml",
+        "found": true
+      }
+    },
+    {
+      "id": "project-dashboard",
+      "name": "Project Dashboard",
+      "owner": "ndf",
+      "type": "infra",
+      "priority": "high",
+      "stage": "active",
+      "effort": "medium",
+      "progress_pct": 35,
+      "health": "green",
+      "summary": "Ya genera snapshot/HTML, valida datos básicos y quedó listo el workflow de publicación a GitHub Pages.",
+      "current_focus": [
+        "formalizar schemas v1",
+        "sumar señales externas opcionales",
+        "probar publicación end-to-end"
+      ],
+      "pending": [
+        "configurar GitHub Pages en el repo remoto",
+        "agregar collector opcional de PRs/issues/CI",
+        "definir reglas de atención y recordatorios"
+      ],
+      "next_action": "validar deploy real en GitHub Pages y cerrar schemas formales",
+      "blockers": [],
+      "needs_decision": false,
+      "can_delegate": true,
+      "quick_win": "conectar el repo remoto real y verificar la URL publicada",
+      "links": {
+        "repo": "https://github.com/ndf14685/project-dashboard",
+        "topic": "telegram://topic/1417",
+        "site": "https://www.nestorfleitas.ar/project-dashboard/"
+      },
+      "topics": [
+        "telegram:-1003958513253/1417"
+      ],
+      "tags": [
+        "infra",
+        "reporting",
+        "portfolio"
+      ],
+      "repo_count": 1,
+      "repos": [
+        "project-dashboard"
+      ],
+      "last_human_update": "2026-05-06T02:58:00-03:00",
+      "last_repo_activity_at": "2026-05-06T03:08:01-03:00",
+      "days_since_human_update": 0,
+      "days_since_repo_activity": 0,
+      "freshness": "fresh",
+      "temperature": "hot",
+      "stale_risk": "low",
+      "confidence": 0.95,
+      "score": 70,
+      "reasons": [
+        "última actualización humana hace 0 día(s)",
+        "última actividad de repo hace 0 día(s)",
+        "tiene próxima acción definida"
+      ],
+      "warnings": [],
+      "status_source": {
+        "type": "repo_file",
+        "location": ".project/PROJECT_STATUS.yaml",
+        "found": true
+      }
+    }
+  ]
+}

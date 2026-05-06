@@ -1,0 +1,30 @@
+schema_version: 1
+project_id: example-project
+name: Example Project
+stage: active # idea | active | paused | blocked | done | maintenance
+priority: high # low | medium | high | critical
+effort: medium # tiny | small | medium | large | huge
+progress_pct: 35
+health: yellow # green | yellow | red
+summary: >-
+  Resumen breve del estado actual del proyecto.
+current_focus:
+  - definir collector
+  - cerrar esquema de datos
+pending:
+  - publicar snapshot inicial
+  - validar template en otro proyecto
+next_action: implementar collector que lea registry y status files
+blockers:
+  - falta definir convención final de links
+needs_decision: false
+can_delegate: true
+quick_win: crear snapshot json inicial
+last_human_update: 2026-05-03T18:30:00-03:00
+target_date: 2026-05-10
+links:
+  repo: https://github.com/example/example-project
+  topic: telegram://topic/0000
+  docs: https://docs.example.local/example
+notes: >-
+  Campo libre corto para observaciones relevantes.
