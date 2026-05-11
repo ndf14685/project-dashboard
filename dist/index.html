@@ -6,38 +6,134 @@
   <title>Project Dashboard</title>
   <style>
     body { font-family: Inter, Arial, sans-serif; margin: 0; background: #0b1020; color: #e5e7eb; }
-    main { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    main { max-width: 1280px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 6px; }
+    h2 { margin: 0; font-size: 18px; }
+    h3 { margin: 0 0 12px; font-size: 15px; color: #cbd5f5; }
+    a { color: #93c5fd; }
+
+    .tabs { display: flex; gap: 6px; margin: 18px 0 18px; border-bottom: 1px solid #24304f; }
+    .tabs button {
+      background: transparent; color: #94a3b8; border: 0; padding: 10px 16px;
+      font-size: 14px; cursor: pointer; border-bottom: 2px solid transparent;
+      font-family: inherit;
+    }
+    .tabs button:hover { color: #e5e7eb; }
+    .tabs button.active { color: #e5e7eb; border-bottom-color: #60a5fa; }
+    .tab { display: none; }
+    .tab.active { display: block; }
+
+    .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 8px 0 20px; }
+    .metric { background: #121933; border: 1px solid #24304f; border-radius: 12px; padding: 12px; }
+
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
     .card { background: #121933; border: 1px solid #24304f; border-radius: 14px; padding: 16px; }
     .card.green { border-color: #2f855a; }
     .card.yellow { border-color: #b7791f; }
     .card.red { border-color: #c53030; }
+    .card ul { padding-left: 18px; margin: 8px 0; }
     .row { display: flex; gap: 8px; align-items: center; }
     .between { justify-content: space-between; }
     .pill { background: #1f2a44; border-radius: 999px; padding: 4px 10px; font-size: 12px; }
-    .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 20px 0; }
-    .metric { background: #121933; border: 1px solid #24304f; border-radius: 12px; padding: 12px; }
-    a { color: #93c5fd; }
+    .pill.small { font-size: 11px; padding: 2px 8px; }
+
+    .kanban {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(220px, 1fr));
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+    .kanban-col {
+      background: #0f172a; border: 1px solid #24304f; border-radius: 12px;
+      display: flex; flex-direction: column; min-height: 200px;
+    }
+    .kanban-col-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 12px; border-bottom: 1px solid #24304f;
+      background: #121933; border-radius: 12px 12px 0 0;
+    }
+    .kanban-col-header .count {
+      background: #1f2a44; border-radius: 999px; padding: 2px 8px;
+      font-size: 12px; color: #cbd5f5;
+    }
+    .kanban-col[data-col="backlog"] { border-top: 3px solid #60a5fa; }
+    .kanban-col[data-col="todo"]    { border-top: 3px solid #fbbf24; }
+    .kanban-col[data-col="doing"]   { border-top: 3px solid #34d399; }
+    .kanban-col[data-col="test"]    { border-top: 3px solid #22d3ee; }
+    .kanban-col[data-col="done"]    { border-top: 3px solid #a78bfa; }
+    .kanban-col[data-col="history"] { border-top: 3px solid #94a3b8; }
+    .kanban-cards { display: flex; flex-direction: column; gap: 8px; padding: 10px; }
+    .kanban-cards .empty { color: #64748b; text-align: center; margin: 16px 0; font-size: 13px; }
+
+    .mini-card {
+      background: #121933; border: 1px solid #24304f; border-left: 4px solid #24304f;
+      border-radius: 8px; padding: 10px; font-size: 13px;
+    }
+    .mini-card.green  { border-left-color: #34d399; }
+    .mini-card.yellow { border-left-color: #fbbf24; }
+    .mini-card.red    { border-left-color: #f87171; }
+    .mini-card strong { font-size: 13px; }
+    .mini-meta { color: #94a3b8; font-size: 11px; margin: 6px 0; display: flex; gap: 6px; flex-wrap: wrap; }
+    .freshness-fresh { color: #34d399; }
+    .freshness-warm  { color: #fbbf24; }
+    .freshness-stale { color: #f87171; }
+    .progress {
+      background: #1f2a44; border-radius: 999px; height: 6px; overflow: hidden; margin: 6px 0;
+    }
+    .progress span { display: block; height: 100%; background: #60a5fa; }
+    .next-action { color: #cbd5f5; display: block; margin-top: 4px; }
+    .blockers { color: #f87171; display: block; margin-top: 4px; }
+
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;
+    }
+    .chart-card {
+      background: #121933; border: 1px solid #24304f; border-radius: 14px; padding: 16px;
+    }
+    .chart-card.full { grid-column: 1 / -1; }
+    .chart-body { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+    .pie { flex-shrink: 0; }
+    .legend { list-style: none; padding: 0; margin: 0; flex: 1; min-width: 160px; font-size: 12px; }
+    .legend li { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
+    .swatch { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+    .legend-label { flex: 1; color: #cbd5f5; }
+    .legend-value { color: #94a3b8; }
+
+    .progress-bars { list-style: none; padding: 0; margin: 0; }
+    .progress-bars li { margin: 10px 0; }
+    .progress-bar-row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px; }
+    .progress-bar-label { color: #cbd5f5; }
+    .progress-bar-value { color: #94a3b8; }
+    .progress-bar { background: #1f2a44; border-radius: 999px; height: 10px; overflow: hidden; }
+    .progress-bar span { display: block; height: 100%; background: #60a5fa; }
   </style>
 </head>
 <body>
   <main>
     <h1>Project Dashboard</h1>
-    <p>Generado: 2026-05-11T19:47:49.924Z</p>
-    <section class="summary">
-      <div class="metric"><strong>Total</strong><br/>15</div>
-      <div class="metric"><strong>Activos</strong><br/>10</div>
-      <div class="metric"><strong>Pausados</strong><br/>1</div>
-      <div class="metric"><strong>Bloqueados</strong><br/>0</div>
-      <div class="metric"><strong>Stale</strong><br/>0</div>
-      <div class="metric"><strong>Riesgo alto</strong><br/>0</div>
-      <div class="metric"><strong>Warnings</strong><br/>0</div>
-      <div class="metric"><strong>Carga</strong><br/>60</div>
-      <div class="metric"><strong>Score promedio</strong><br/>47.7</div>
-    </section>
-    
-    <section class="grid">
+    <p>Generado: 2026-05-11T20:18:06.425Z</p>
+    <nav class="tabs" role="tablist">
+      <button type="button" data-tab="resumen" class="active" role="tab" aria-selected="true">Resumen</button>
+      <button type="button" data-tab="kanban" role="tab" aria-selected="false">Kanban</button>
+      <button type="button" data-tab="stats" role="tab" aria-selected="false">Estadísticas</button>
+    </nav>
+
+    <section class="tab active" id="tab-resumen" role="tabpanel">
+      <section class="summary">
+        <div class="metric"><strong>Total</strong><br/>15</div>
+        <div class="metric"><strong>Activos</strong><br/>10</div>
+        <div class="metric"><strong>Pausados</strong><br/>1</div>
+        <div class="metric"><strong>Bloqueados</strong><br/>0</div>
+        <div class="metric"><strong>Stale</strong><br/>0</div>
+        <div class="metric"><strong>Riesgo alto</strong><br/>0</div>
+        <div class="metric"><strong>Warnings</strong><br/>0</div>
+        <div class="metric"><strong>Carga</strong><br/>60</div>
+        <div class="metric"><strong>Score promedio</strong><br/>47.7</div>
+      </section>
       
+      <section class="grid">
+        
     <section class="card green">
       <div class="row between">
         <h2>CareerOps</h2>
@@ -405,7 +501,7 @@
         <li><strong>Riesgo stale:</strong> low</li>
         <li><strong>Repos:</strong> 1</li>
         <li><strong>Score:</strong> 55 (confianza 0.95)</li>
-        <li><strong>Próxima acción:</strong> revisar README/quickstart y dejarlo en estado "vitrina" estable</li>
+        <li><strong>Próxima acción:</strong> revisar README/quickstart y dejarlo en estado &quot;vitrina&quot; estable</li>
         <li><strong>Bloqueos:</strong> ninguno</li>
       </ul>
       <details>
@@ -442,7 +538,506 @@
       
     </section>
   
+      </section>
+    </section>
+
+    <section class="tab" id="tab-kanban" role="tabpanel">
+      
+    <div class="kanban">
+      
+        <div class="kanban-col" data-col="backlog">
+          <header class="kanban-col-header">
+            <strong>Backlog</strong>
+            <span class="count">1</span>
+          </header>
+          <div class="kanban-cards">
+            
+    <article class="mini-card yellow">
+      <div class="row between">
+        <strong>Copiloto Infra Proactivo</strong>
+        <span class="pill small">low</span>
+      </div>
+      <div class="mini-meta">
+        <span>large</span>
+        <span>·</span>
+        <span>0%</span>
+        <span>·</span>
+        <span class="freshness-fresh">fresh</span>
+      </div>
+      <div class="progress"><span style="width:0%"></span></div>
+      <small class="next-action">redactar README inicial con visión, casos de uso y MVP recortado</small>
+      <small class="blockers">⚠ 1 bloqueo(s)</small>
+    </article>
+  
+          </div>
+        </div>
+      
+        <div class="kanban-col" data-col="todo">
+          <header class="kanban-col-header">
+            <strong>Todo</strong>
+            <span class="count">0</span>
+          </header>
+          <div class="kanban-cards">
+            <p class="empty">—</p>
+          </div>
+        </div>
+      
+        <div class="kanban-col" data-col="doing">
+          <header class="kanban-col-header">
+            <strong>Doing</strong>
+            <span class="count">7</span>
+          </header>
+          <div class="kanban-cards">
+            
+    <article class="mini-card green">
+      <div class="row between">
+        <strong>CareerOps</strong>
+        <span class="pill small">high</span>
+      </div>
+      <div class="mini-meta">
+        <span>large</span>
+        <span>·</span>
+        <span>55%</span>
+        <span>·</span>
+        <span class="freshness-warm">warm</span>
+      </div>
+      <div class="progress"><span style="width:55%"></span></div>
+      <small class="next-action">conectar el dashboard con reporting diario y priorización visible de vacantes</small>
+      
+    </article>
+  
+    <article class="mini-card green">
+      <div class="row between">
+        <strong>Project Dashboard</strong>
+        <span class="pill small">high</span>
+      </div>
+      <div class="mini-meta">
+        <span>medium</span>
+        <span>·</span>
+        <span>35%</span>
+        <span>·</span>
+        <span class="freshness-warm">warm</span>
+      </div>
+      <div class="progress"><span style="width:35%"></span></div>
+      <small class="next-action">validar deploy real en GitHub Pages y cerrar schemas formales</small>
+      
+    </article>
+  
+    <article class="mini-card yellow">
+      <div class="row between">
+        <strong>Assistant Tech Radar</strong>
+        <span class="pill small">high</span>
+      </div>
+      <div class="mini-meta">
+        <span>medium</span>
+        <span>·</span>
+        <span>40%</span>
+        <span>·</span>
+        <span class="freshness-warm">warm</span>
+      </div>
+      <div class="progress"><span style="width:40%"></span></div>
+      <small class="next-action">ejecutar un run real controlado y verificar el output generado de punta a punta</small>
+      
+    </article>
+  
+    <article class="mini-card green">
+      <div class="row between">
+        <strong>AI Effort Planner</strong>
+        <span class="pill small">high</span>
+      </div>
+      <div class="mini-meta">
+        <span>medium</span>
+        <span>·</span>
+        <span>60%</span>
+        <span>·</span>
+        <span class="freshness-warm">warm</span>
+      </div>
+      <div class="progress"><span style="width:60%"></span></div>
+      <small class="next-action">probar el planner sobre más blueprints reales y ajustar defaults según resultados</small>
+      
+    </article>
+  
+    <article class="mini-card yellow">
+      <div class="row between">
+        <strong>Nexus Operator</strong>
+        <span class="pill small">high</span>
+      </div>
+      <div class="mini-meta">
+        <span>huge</span>
+        <span>·</span>
+        <span>20%</span>
+        <span>·</span>
+        <span class="freshness-warm">warm</span>
+      </div>
+      <div class="progress"><span style="width:20%"></span></div>
+      <small class="next-action">implementar el skeleton técnico mínimo del MVP y fijar contratos operativos iniciales</small>
+      
+    </article>
+  
+    <article class="mini-card green">
+      <div class="row between">
+        <strong>NexusAI / Nexus Security</strong>
+        <span class="pill small">medium</span>
+      </div>
+      <div class="mini-meta">
+        <span>medium</span>
+        <span>·</span>
+        <span>55%</span>
+        <span>·</span>
+        <span class="freshness-warm">warm</span>
+      </div>
+      <div class="progress"><span style="width:55%"></span></div>
+      <small class="next-action">auditar el mensaje principal del sitio y priorizar mejoras concretas de conversión</small>
+      
+    </article>
+  
+    <article class="mini-card yellow">
+      <div class="row between">
+        <strong>Proyecto Arenero</strong>
+        <span class="pill small">medium</span>
+      </div>
+      <div class="mini-meta">
+        <span>medium</span>
+        <span>·</span>
+        <span>25%</span>
+        <span>·</span>
+        <span class="freshness-fresh">fresh</span>
+      </div>
+      <div class="progress"><span style="width:25%"></span></div>
+      <small class="next-action">cargar fotos actuales y completar bitácora de cambios mecánicos pendientes</small>
+      
+    </article>
+  
+          </div>
+        </div>
+      
+        <div class="kanban-col" data-col="test">
+          <header class="kanban-col-header">
+            <strong>Test</strong>
+            <span class="count">3</span>
+          </header>
+          <div class="kanban-cards">
+            
+    <article class="mini-card green">
+      <div class="row between">
+        <strong>Cocina Media Center</strong>
+        <span class="pill small">medium</span>
+      </div>
+      <div class="mini-meta">
+        <span>large</span>
+        <span>·</span>
+        <span>85%</span>
+        <span>·</span>
+        <span class="freshness-warm">warm</span>
+      </div>
+      <div class="progress"><span style="width:85%"></span></div>
+      <small class="next-action">verificar periódicamente el estado desplegado y capturar cualquier mejora chica de operabilidad</small>
+      
+    </article>
+  
+    <article class="mini-card green">
+      <div class="row between">
+        <strong>ndf14685.github.io</strong>
+        <span class="pill small">medium</span>
+      </div>
+      <div class="mini-meta">
+        <span>medium</span>
+        <span>·</span>
+        <span>75%</span>
+        <span>·</span>
+        <span class="freshness-warm">warm</span>
+      </div>
+      <div class="progress"><span style="width:75%"></span></div>
+      <small class="next-action">revisar la sección de proyectos y alinear el portfolio con el estado actual del resto de iniciativas</small>
+      
+    </article>
+  
+    <article class="mini-card green">
+      <div class="row between">
+        <strong>The Architect</strong>
+        <span class="pill small">high</span>
+      </div>
+      <div class="mini-meta">
+        <span>large</span>
+        <span>·</span>
+        <span>70%</span>
+        <span>·</span>
+        <span class="freshness-warm">warm</span>
+      </div>
+      <div class="progress"><span style="width:70%"></span></div>
+      <small class="next-action">contrastar blueprints generados contra proyectos reales y cerrar gaps de implementación repetidos</small>
+      
+    </article>
+  
+          </div>
+        </div>
+      
+        <div class="kanban-col" data-col="done">
+          <header class="kanban-col-header">
+            <strong>Done</strong>
+            <span class="count">1</span>
+          </header>
+          <div class="kanban-cards">
+            
+    <article class="mini-card green">
+      <div class="row between">
+        <strong>ML Serving Infrastructure</strong>
+        <span class="pill small">low</span>
+      </div>
+      <div class="mini-meta">
+        <span>large</span>
+        <span>·</span>
+        <span>95%</span>
+        <span>·</span>
+        <span class="freshness-fresh">fresh</span>
+      </div>
+      <div class="progress"><span style="width:95%"></span></div>
+      <small class="next-action">revisar README/quickstart y dejarlo en estado &quot;vitrina&quot; estable</small>
+      
+    </article>
+  
+          </div>
+        </div>
+      
+        <div class="kanban-col" data-col="history">
+          <header class="kanban-col-header">
+            <strong>History</strong>
+            <span class="count">3</span>
+          </header>
+          <div class="kanban-cards">
+            
+    <article class="mini-card green">
+      <div class="row between">
+        <strong>Homelab Config Backup</strong>
+        <span class="pill small">medium</span>
+      </div>
+      <div class="mini-meta">
+        <span>small</span>
+        <span>·</span>
+        <span>80%</span>
+        <span>·</span>
+        <span class="freshness-fresh">fresh</span>
+      </div>
+      <div class="progress"><span style="width:80%"></span></div>
+      <small class="next-action">validar que la tarea programada esté corriendo y revisar último backup</small>
+      
+    </article>
+  
+    <article class="mini-card yellow">
+      <div class="row between">
+        <strong>Cursify</strong>
+        <span class="pill small">low</span>
+      </div>
+      <div class="mini-meta">
+        <span>large</span>
+        <span>·</span>
+        <span>20%</span>
+        <span>·</span>
+        <span class="freshness-fresh">fresh</span>
+      </div>
+      <div class="progress"><span style="width:20%"></span></div>
+      <small class="next-action">decidir continuar/archivar antes de meter más esfuerzo en el MVP</small>
+      <small class="blockers">⚠ 1 bloqueo(s)</small>
+    </article>
+  
+    <article class="mini-card yellow">
+      <div class="row between">
+        <strong>Nestor Consulting Web</strong>
+        <span class="pill small">low</span>
+      </div>
+      <div class="mini-meta">
+        <span>small</span>
+        <span>·</span>
+        <span>60%</span>
+        <span>·</span>
+        <span class="freshness-fresh">fresh</span>
+      </div>
+      <div class="progress"><span style="width:60%"></span></div>
+      <small class="next-action">definir si el sitio queda como CV o pivotea a sitio de consultoría</small>
+      <small class="blockers">⚠ 1 bloqueo(s)</small>
+    </article>
+  
+          </div>
+        </div>
+      
+    </div>
+  
+    </section>
+
+    <section class="tab" id="tab-stats" role="tabpanel">
+      
+    <div class="stats-grid">
+      <div class="chart-card">
+        <h3>Peso por proyecto (effort)</h3>
+        <div class="chart-body">
+          <svg viewBox="0 0 220 220" width="220" height="220" class="pie"><path d="M110,110 L110,8 A102,102 0 0,1 185.80077219869423,41.74867815139646 Z" fill="#fb923c" stroke="#0b1020" stroke-width="1"><title>Nexus Operator: 8</title></path><path d="M110,110 L185.80077219869423,41.74867815139646 A102,102 0 0,1 209.77105527484818,88.79300753658856 Z" fill="#60a5fa" stroke="#0b1020" stroke-width="1"><title>CareerOps: 5</title></path><path d="M110,110 L209.77105527484818,88.79300753658856 A102,102 0 0,1 207.00776466210567,141.5197334262446 Z" fill="#a78bfa" stroke="#0b1020" stroke-width="1"><title>Cocina Media Center: 5</title></path><path d="M110,110 L207.00776466210567,141.5197334262446 A102,102 0 0,1 178.25132184860354,185.80077219869423 Z" fill="#84cc16" stroke="#0b1020" stroke-width="1"><title>The Architect: 5</title></path><path d="M110,110 L178.25132184860354,185.80077219869423 A102,102 0 0,1 131.20699246341144,209.77105527484818 Z" fill="#06b6d4" stroke="#0b1020" stroke-width="1"><title>Copiloto Infra Proactivo: 5</title></path><path d="M110,110 L131.20699246341144,209.77105527484818 A102,102 0 0,1 78.48026657375533,207.00776466210567 Z" fill="#10b981" stroke="#0b1020" stroke-width="1"><title>Cursify: 5</title></path><path d="M110,110 L78.48026657375533,207.00776466210567 A102,102 0 0,1 34.19922780130581,178.25132184860357 Z" fill="#ef4444" stroke="#0b1020" stroke-width="1"><title>ML Serving Infrastructure: 5</title></path><path d="M110,110 L34.19922780130581,178.25132184860357 A102,102 0 0,1 16.818363320454694,151.4871375937316 Z" fill="#34d399" stroke="#0b1020" stroke-width="1"><title>Project Dashboard: 3</title></path><path d="M110,110 L16.818363320454694,151.4871375937316 A102,102 0 0,1 8.558766672436121,120.66190325330074 Z" fill="#fbbf24" stroke="#0b1020" stroke-width="1"><title>Assistant Tech Radar: 3</title></path><path d="M110,110 L8.558766672436121,120.66190325330074 A102,102 0 0,1 10.228944725151834,88.79300753658853 Z" fill="#f87171" stroke="#0b1020" stroke-width="1"><title>AI Effort Planner: 3</title></path><path d="M110,110 L10.228944725151834,88.79300753658853 A102,102 0 0,1 21.66540881398727,58.999999999999986 Z" fill="#22d3ee" stroke="#0b1020" stroke-width="1"><title>ndf14685.github.io: 3</title></path><path d="M110,110 L21.66540881398727,58.999999999999986 A102,102 0 0,1 41.748678151396405,34.19922780130584 Z" fill="#f472b6" stroke="#0b1020" stroke-width="1"><title>NexusAI / Nexus Security: 3</title></path><path d="M110,110 L41.748678151396405,34.19922780130584 A102,102 0 0,1 68.51286240626838,16.818363320454694 Z" fill="#facc15" stroke="#0b1020" stroke-width="1"><title>Proyecto Arenero: 3</title></path><path d="M110,110 L68.51286240626838,16.818363320454694 A102,102 0 0,1 88.79300753658849,10.228944725151834 Z" fill="#94a3b8" stroke="#0b1020" stroke-width="1"><title>Homelab Config Backup: 2</title></path><path d="M110,110 L88.79300753658849,10.228944725151834 A102,102 0 0,1 109.99999999999997,8 Z" fill="#8b5cf6" stroke="#0b1020" stroke-width="1"><title>Nestor Consulting Web: 2</title></path></svg>
+          <ul class="legend"><li><span class="swatch" style="background:#fb923c"></span><span class="legend-label">Nexus Operator</span><span class="legend-value">8 (13.3%)</span></li><li><span class="swatch" style="background:#60a5fa"></span><span class="legend-label">CareerOps</span><span class="legend-value">5 (8.3%)</span></li><li><span class="swatch" style="background:#a78bfa"></span><span class="legend-label">Cocina Media Center</span><span class="legend-value">5 (8.3%)</span></li><li><span class="swatch" style="background:#84cc16"></span><span class="legend-label">The Architect</span><span class="legend-value">5 (8.3%)</span></li><li><span class="swatch" style="background:#06b6d4"></span><span class="legend-label">Copiloto Infra Proactivo</span><span class="legend-value">5 (8.3%)</span></li><li><span class="swatch" style="background:#10b981"></span><span class="legend-label">Cursify</span><span class="legend-value">5 (8.3%)</span></li><li><span class="swatch" style="background:#ef4444"></span><span class="legend-label">ML Serving Infrastructure</span><span class="legend-value">5 (8.3%)</span></li><li><span class="swatch" style="background:#34d399"></span><span class="legend-label">Project Dashboard</span><span class="legend-value">3 (5.0%)</span></li><li><span class="swatch" style="background:#fbbf24"></span><span class="legend-label">Assistant Tech Radar</span><span class="legend-value">3 (5.0%)</span></li><li><span class="swatch" style="background:#f87171"></span><span class="legend-label">AI Effort Planner</span><span class="legend-value">3 (5.0%)</span></li><li><span class="swatch" style="background:#22d3ee"></span><span class="legend-label">ndf14685.github.io</span><span class="legend-value">3 (5.0%)</span></li><li><span class="swatch" style="background:#f472b6"></span><span class="legend-label">NexusAI / Nexus Security</span><span class="legend-value">3 (5.0%)</span></li><li><span class="swatch" style="background:#facc15"></span><span class="legend-label">Proyecto Arenero</span><span class="legend-value">3 (5.0%)</span></li><li><span class="swatch" style="background:#94a3b8"></span><span class="legend-label">Homelab Config Backup</span><span class="legend-value">2 (3.3%)</span></li><li><span class="swatch" style="background:#8b5cf6"></span><span class="legend-label">Nestor Consulting Web</span><span class="legend-value">2 (3.3%)</span></li></ul>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Distribución por stage</h3>
+        <div class="chart-body">
+          <svg viewBox="0 0 220 220" width="220" height="220" class="pie"><path d="M110,110 L110,8 A102,102 0 1,1 21.66540881398727,161.00000000000006 Z" fill="#34d399" stroke="#0b1020" stroke-width="1"><title>active: 10</title></path><path d="M110,110 L21.66540881398727,161.00000000000006 A102,102 0 0,1 12.992235337894328,78.48026657375539 Z" fill="#22d3ee" stroke="#0b1020" stroke-width="1"><title>maintenance: 2</title></path><path d="M110,110 L12.992235337894328,78.48026657375539 A102,102 0 0,1 34.19922780130581,41.74867815139643 Z" fill="#60a5fa" stroke="#0b1020" stroke-width="1"><title>idea: 1</title></path><path d="M110,110 L34.19922780130581,41.74867815139643 A102,102 0 0,1 68.51286240626838,16.818363320454694 Z" fill="#fbbf24" stroke="#0b1020" stroke-width="1"><title>paused: 1</title></path><path d="M110,110 L68.51286240626838,16.818363320454694 A102,102 0 0,1 109.99999999999997,8 Z" fill="#a78bfa" stroke="#0b1020" stroke-width="1"><title>done: 1</title></path></svg>
+          <ul class="legend"><li><span class="swatch" style="background:#34d399"></span><span class="legend-label">active</span><span class="legend-value">10 (66.7%)</span></li><li><span class="swatch" style="background:#22d3ee"></span><span class="legend-label">maintenance</span><span class="legend-value">2 (13.3%)</span></li><li><span class="swatch" style="background:#60a5fa"></span><span class="legend-label">idea</span><span class="legend-value">1 (6.7%)</span></li><li><span class="swatch" style="background:#fbbf24"></span><span class="legend-label">paused</span><span class="legend-value">1 (6.7%)</span></li><li><span class="swatch" style="background:#a78bfa"></span><span class="legend-label">done</span><span class="legend-value">1 (6.7%)</span></li></ul>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Distribución por prioridad</h3>
+        <div class="chart-body">
+          <svg viewBox="0 0 220 220" width="220" height="220" class="pie"><path d="M110,110 L110,8 A102,102 0 0,1 169.95409573383228,192.5197334262446 Z" fill="#f87171" stroke="#0b1020" stroke-width="1"><title>high: 6</title></path><path d="M110,110 L169.95409573383228,192.5197334262446 A102,102 0 0,1 8.558766672436121,120.66190325330074 Z" fill="#fbbf24" stroke="#0b1020" stroke-width="1"><title>medium: 5</title></path><path d="M110,110 L8.558766672436121,120.66190325330074 A102,102 0 0,1 109.99999999999997,8 Z" fill="#94a3b8" stroke="#0b1020" stroke-width="1"><title>low: 4</title></path></svg>
+          <ul class="legend"><li><span class="swatch" style="background:#f87171"></span><span class="legend-label">high</span><span class="legend-value">6 (40.0%)</span></li><li><span class="swatch" style="background:#fbbf24"></span><span class="legend-label">medium</span><span class="legend-value">5 (33.3%)</span></li><li><span class="swatch" style="background:#94a3b8"></span><span class="legend-label">low</span><span class="legend-value">4 (26.7%)</span></li></ul>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Distribución por health</h3>
+        <div class="chart-body">
+          <svg viewBox="0 0 220 220" width="220" height="220" class="pie"><path d="M110,110 L110,8 A102,102 0 1,1 50.04590426616775,192.51973342624464 Z" fill="#34d399" stroke="#0b1020" stroke-width="1"><title>green: 9</title></path><path d="M110,110 L50.04590426616775,192.51973342624464 A102,102 0 0,1 109.99999999999997,8 Z" fill="#fbbf24" stroke="#0b1020" stroke-width="1"><title>yellow: 6</title></path></svg>
+          <ul class="legend"><li><span class="swatch" style="background:#34d399"></span><span class="legend-label">green</span><span class="legend-value">9 (60.0%)</span></li><li><span class="swatch" style="background:#fbbf24"></span><span class="legend-label">yellow</span><span class="legend-value">6 (40.0%)</span></li></ul>
+        </div>
+      </div>
+      <div class="chart-card full">
+        <h3>Avance por proyecto</h3>
+        <ul class="progress-bars">
+      <li>
+        <div class="progress-bar-row">
+          <span class="progress-bar-label">ML Serving Infrastructure</span>
+          <span class="progress-bar-value">95%</span>
+        </div>
+        <div class="progress-bar"><span style="width:95%; background:#34d399;"></span></div>
+      </li>
+    
+      <li>
+        <div class="progress-bar-row">
+          <span class="progress-bar-label">Cocina Media Center</span>
+          <span class="progress-bar-value">85%</span>
+        </div>
+        <div class="progress-bar"><span style="width:85%; background:#34d399;"></span></div>
+      </li>
+    
+      <li>
+        <div class="progress-bar-row">
+          <span class="progress-bar-label">Homelab Config Backup</span>
+          <span class="progress-bar-value">80%</span>
+        </div>
+        <div class="progress-bar"><span style="width:80%; background:#34d399;"></span></div>
+      </li>
+    
+      <li>
+        <div class="progress-bar-row">
+          <span class="progress-bar-label">ndf14685.github.io</span>
+          <span class="progress-bar-value">75%</span>
+        </div>
+        <div class="progress-bar"><span style="width:75%; background:#34d399;"></span></div>
+      </li>
+    
+      <li>
+        <div class="progress-bar-row">
+          <span class="progress-bar-label">The Architect</span>
+          <span class="progress-bar-value">70%</span>
+        </div>
+        <div class="progress-bar"><span style="width:70%; background:#34d399;"></span></div>
+      </li>
+    
+      <li>
+        <div class="progress-bar-row">
+          <span class="progress-bar-label">AI Effort Planner</span>
+          <span class="progress-bar-value">60%</span>
+        </div>
+        <div class="progress-bar"><span style="width:60%; background:#34d399;"></span></div>
+      </li>
+    
+      <li>
+        <div class="progress-bar-row">
+          <span class="progress-bar-label">Nestor Consulting Web</span>
+          <span class="progress-bar-value">60%</span>
+        </div>
+        <div class="progress-bar"><span style="width:60%; background:#fbbf24;"></span></div>
+      </li>
+    
+      <li>
+        <div class="progress-bar-row">
+          <span class="progress-bar-label">CareerOps</span>
+          <span class="progress-bar-value">55%</span>
+        </div>
+        <div class="progress-bar"><span style="width:55%; background:#34d399;"></span></div>
+      </li>
+    
+      <li>
+        <div class="progress-bar-row">
+          <span class="progress-bar-label">NexusAI / Nexus Security</span>
+          <span class="progress-bar-value">55%</span>
+        </div>
+        <div class="progress-bar"><span style="width:55%; background:#34d399;"></span></div>
+      </li>
+    
+      <li>
+        <div class="progress-bar-row">
+          <span class="progress-bar-label">Assistant Tech Radar</span>
+          <span class="progress-bar-value">40%</span>
+        </div>
+        <div class="progress-bar"><span style="width:40%; background:#fbbf24;"></span></div>
+      </li>
+    
+      <li>
+        <div class="progress-bar-row">
+          <span class="progress-bar-label">Project Dashboard</span>
+          <span class="progress-bar-value">35%</span>
+        </div>
+        <div class="progress-bar"><span style="width:35%; background:#34d399;"></span></div>
+      </li>
+    
+      <li>
+        <div class="progress-bar-row">
+          <span class="progress-bar-label">Proyecto Arenero</span>
+          <span class="progress-bar-value">25%</span>
+        </div>
+        <div class="progress-bar"><span style="width:25%; background:#fbbf24;"></span></div>
+      </li>
+    
+      <li>
+        <div class="progress-bar-row">
+          <span class="progress-bar-label">Nexus Operator</span>
+          <span class="progress-bar-value">20%</span>
+        </div>
+        <div class="progress-bar"><span style="width:20%; background:#fbbf24;"></span></div>
+      </li>
+    
+      <li>
+        <div class="progress-bar-row">
+          <span class="progress-bar-label">Cursify</span>
+          <span class="progress-bar-value">20%</span>
+        </div>
+        <div class="progress-bar"><span style="width:20%; background:#fbbf24;"></span></div>
+      </li>
+    
+      <li>
+        <div class="progress-bar-row">
+          <span class="progress-bar-label">Copiloto Infra Proactivo</span>
+          <span class="progress-bar-value">0%</span>
+        </div>
+        <div class="progress-bar"><span style="width:0%; background:#fbbf24;"></span></div>
+      </li>
+    </ul>
+      </div>
+    </div>
+  
     </section>
   </main>
+  <script>
+    (function () {
+      const buttons = document.querySelectorAll('.tabs button');
+      const panels = document.querySelectorAll('.tab');
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          buttons.forEach((b) => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+          panels.forEach((p) => p.classList.remove('active'));
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          const target = document.getElementById('tab-' + btn.dataset.tab);
+          if (target) target.classList.add('active');
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

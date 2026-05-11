@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-11T19:47:49.924Z",
+  "generated_at": "2026-05-11T20:18:06.425Z",
   "summary": {
     "total": 15,
     "active": 10,
@@ -124,7 +124,7 @@
         "project-dashboard"
       ],
       "last_human_update": "2026-05-06T02:58:00-03:00",
-      "last_repo_activity_at": "2026-05-11T16:00:32-03:00",
+      "last_repo_activity_at": "2026-05-11T16:48:22-03:00",
       "days_since_human_update": 5,
       "days_since_repo_activity": 0,
       "freshness": "warm",
