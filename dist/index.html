@@ -23,19 +23,19 @@
 <body>
   <main>
     <h1>Project Dashboard</h1>
-    <p>Generado: 2026-05-06T06:10:47.322Z</p>
+    <p>Generado: 2026-05-11T19:00:11.627Z</p>
     <section class="summary">
-      <div class="metric"><strong>Total</strong><br/>2</div>
-      <div class="metric"><strong>Activos</strong><br/>2</div>
+      <div class="metric"><strong>Total</strong><br/>15</div>
+      <div class="metric"><strong>Activos</strong><br/>9</div>
       <div class="metric"><strong>Pausados</strong><br/>0</div>
       <div class="metric"><strong>Bloqueados</strong><br/>0</div>
       <div class="metric"><strong>Stale</strong><br/>0</div>
       <div class="metric"><strong>Riesgo alto</strong><br/>0</div>
-      <div class="metric"><strong>Warnings</strong><br/>0</div>
-      <div class="metric"><strong>Carga</strong><br/>8</div>
-      <div class="metric"><strong>Score promedio</strong><br/>70</div>
+      <div class="metric"><strong>Warnings</strong><br/>6</div>
+      <div class="metric"><strong>Carga</strong><br/>38</div>
+      <div class="metric"><strong>Score promedio</strong><br/>58.4</div>
     </section>
-    
+    <section class="card"><h2>Warnings</h2><ul><li>[proyecto-arenero] status file no encontrado; se usará metadata mínima del registry</li><li>[homelab-config-backup] status file no encontrado; se usará metadata mínima del registry</li><li>[copiloto-infra-proactivo] status file no encontrado; se usará metadata mínima del registry</li><li>[cursify] status file no encontrado; se usará metadata mínima del registry</li><li>[ml-serving-infrastructure] status file no encontrado; se usará metadata mínima del registry</li><li>[nestor-consulting-web] status file no encontrado; se usará metadata mínima del registry</li></ul></section>
     <section class="grid">
       
     <section class="card green">
@@ -49,17 +49,17 @@
         <li><strong>Prioridad:</strong> high</li>
         <li><strong>Esfuerzo:</strong> large</li>
         <li><strong>Avance:</strong> 55%</li>
-        <li><strong>Freshness:</strong> fresh</li>
+        <li><strong>Freshness:</strong> warm</li>
         <li><strong>Temperatura:</strong> hot</li>
-        <li><strong>Riesgo stale:</strong> low</li>
+        <li><strong>Riesgo stale:</strong> medium</li>
         <li><strong>Repos:</strong> 1</li>
-        <li><strong>Score:</strong> 70 (confianza 0.95)</li>
+        <li><strong>Score:</strong> 60 (confianza 0.95)</li>
         <li><strong>Próxima acción:</strong> conectar el dashboard con reporting diario y priorización visible de vacantes</li>
         <li><strong>Bloqueos:</strong> ninguno</li>
       </ul>
       <details>
         <summary>Razones</summary>
-        <ul><li>última actualización humana hace 0 día(s)</li><li>última actividad de repo hace 0 día(s)</li><li>tiene próxima acción definida</li></ul>
+        <ul><li>última actualización humana hace 5 día(s)</li><li>última actividad de repo hace 0 día(s)</li><li>tiene próxima acción definida</li></ul>
       </details>
       
     </section>
@@ -76,19 +76,370 @@
         <li><strong>Prioridad:</strong> high</li>
         <li><strong>Esfuerzo:</strong> medium</li>
         <li><strong>Avance:</strong> 35%</li>
-        <li><strong>Freshness:</strong> fresh</li>
-        <li><strong>Temperatura:</strong> hot</li>
-        <li><strong>Riesgo stale:</strong> low</li>
+        <li><strong>Freshness:</strong> warm</li>
+        <li><strong>Temperatura:</strong> warm</li>
+        <li><strong>Riesgo stale:</strong> medium</li>
         <li><strong>Repos:</strong> 1</li>
-        <li><strong>Score:</strong> 70 (confianza 0.95)</li>
+        <li><strong>Score:</strong> 55 (confianza 0.95)</li>
         <li><strong>Próxima acción:</strong> validar deploy real en GitHub Pages y cerrar schemas formales</li>
         <li><strong>Bloqueos:</strong> ninguno</li>
       </ul>
       <details>
         <summary>Razones</summary>
-        <ul><li>última actualización humana hace 0 día(s)</li><li>última actividad de repo hace 0 día(s)</li><li>tiene próxima acción definida</li></ul>
+        <ul><li>última actualización humana hace 5 día(s)</li><li>última actividad de repo hace 5 día(s)</li><li>tiene próxima acción definida</li></ul>
       </details>
       
+    </section>
+  
+
+    <section class="card yellow">
+      <div class="row between">
+        <h2>Assistant Tech Radar</h2>
+        <span class="pill">active</span>
+      </div>
+      <p>Radar tecnológico local para detectar oportunidades de alto valor y convertirlas en reportes, backlog y paquetes SDD reutilizables.</p>
+      <ul>
+        <li><strong>Owner:</strong> ndf</li>
+        <li><strong>Prioridad:</strong> high</li>
+        <li><strong>Esfuerzo:</strong> medium</li>
+        <li><strong>Avance:</strong> 40%</li>
+        <li><strong>Freshness:</strong> warm</li>
+        <li><strong>Temperatura:</strong> hot</li>
+        <li><strong>Riesgo stale:</strong> low</li>
+        <li><strong>Repos:</strong> 1</li>
+        <li><strong>Score:</strong> 52 (confianza 0.95)</li>
+        <li><strong>Próxima acción:</strong> ejecutar un run real controlado y verificar el output generado de punta a punta</li>
+        <li><strong>Bloqueos:</strong> ninguno</li>
+      </ul>
+      <details>
+        <summary>Razones</summary>
+        <ul><li>última actualización humana hace 4 día(s)</li><li>última actividad de repo hace 0 día(s)</li><li>tiene próxima acción definida</li></ul>
+      </details>
+      
+    </section>
+  
+
+    <section class="card green">
+      <div class="row between">
+        <h2>AI Effort Planner</h2>
+        <span class="pill">active</span>
+      </div>
+      <p>Plugin para convertir blueprints en planes de ejecución autónoma diaria con handoff, progreso y runner listos para cron.</p>
+      <ul>
+        <li><strong>Owner:</strong> ndf</li>
+        <li><strong>Prioridad:</strong> high</li>
+        <li><strong>Esfuerzo:</strong> medium</li>
+        <li><strong>Avance:</strong> 60%</li>
+        <li><strong>Freshness:</strong> warm</li>
+        <li><strong>Temperatura:</strong> cold</li>
+        <li><strong>Riesgo stale:</strong> medium</li>
+        <li><strong>Repos:</strong> 1</li>
+        <li><strong>Score:</strong> 48 (confianza 0.95)</li>
+        <li><strong>Próxima acción:</strong> probar el planner sobre más blueprints reales y ajustar defaults según resultados</li>
+        <li><strong>Bloqueos:</strong> ninguno</li>
+      </ul>
+      <details>
+        <summary>Razones</summary>
+        <ul><li>última actualización humana hace 4 día(s)</li><li>última actividad de repo hace 14 día(s)</li><li>tiene próxima acción definida</li></ul>
+      </details>
+      
+    </section>
+  
+
+    <section class="card green">
+      <div class="row between">
+        <h2>Cocina Media Center</h2>
+        <span class="pill">active</span>
+      </div>
+      <p>Media center desplegado en la Raspberry de la cocina con dashboard fullscreen, API local, Spotify, YouTube y reproducción de archivos compartidos.</p>
+      <ul>
+        <li><strong>Owner:</strong> ndf</li>
+        <li><strong>Prioridad:</strong> medium</li>
+        <li><strong>Esfuerzo:</strong> large</li>
+        <li><strong>Avance:</strong> 85%</li>
+        <li><strong>Freshness:</strong> warm</li>
+        <li><strong>Temperatura:</strong> cold</li>
+        <li><strong>Riesgo stale:</strong> medium</li>
+        <li><strong>Repos:</strong> 1</li>
+        <li><strong>Score:</strong> 54 (confianza 0.95)</li>
+        <li><strong>Próxima acción:</strong> verificar periódicamente el estado desplegado y capturar cualquier mejora chica de operabilidad</li>
+        <li><strong>Bloqueos:</strong> ninguno</li>
+      </ul>
+      <details>
+        <summary>Razones</summary>
+        <ul><li>última actualización humana hace 4 día(s)</li><li>última actividad de repo hace 8 día(s)</li><li>tiene próxima acción definida</li></ul>
+      </details>
+      
+    </section>
+  
+
+    <section class="card yellow">
+      <div class="row between">
+        <h2>Nexus Operator</h2>
+        <span class="pill">active</span>
+      </div>
+      <p>Consola operativa multimodal sobre OpenClaw para observación, chat, voz y acciones seguras con trazabilidad en un entorno técnico personal.</p>
+      <ul>
+        <li><strong>Owner:</strong> ndf</li>
+        <li><strong>Prioridad:</strong> high</li>
+        <li><strong>Esfuerzo:</strong> huge</li>
+        <li><strong>Avance:</strong> 20%</li>
+        <li><strong>Freshness:</strong> warm</li>
+        <li><strong>Temperatura:</strong> hot</li>
+        <li><strong>Riesgo stale:</strong> low</li>
+        <li><strong>Repos:</strong> 1</li>
+        <li><strong>Score:</strong> 52 (confianza 0.95)</li>
+        <li><strong>Próxima acción:</strong> implementar el skeleton técnico mínimo del MVP y fijar contratos operativos iniciales</li>
+        <li><strong>Bloqueos:</strong> ninguno</li>
+      </ul>
+      <details>
+        <summary>Razones</summary>
+        <ul><li>última actualización humana hace 4 día(s)</li><li>última actividad de repo hace 0 día(s)</li><li>tiene próxima acción definida</li></ul>
+      </details>
+      
+    </section>
+  
+
+    <section class="card green">
+      <div class="row between">
+        <h2>ndf14685.github.io</h2>
+        <span class="pill">active</span>
+      </div>
+      <p>Sitio personal/portfolio vigente con refactor visual, contenido profesional y automatización diaria de noticias de DevOps y ciberseguridad.</p>
+      <ul>
+        <li><strong>Owner:</strong> ndf</li>
+        <li><strong>Prioridad:</strong> medium</li>
+        <li><strong>Esfuerzo:</strong> medium</li>
+        <li><strong>Avance:</strong> 75%</li>
+        <li><strong>Freshness:</strong> warm</li>
+        <li><strong>Temperatura:</strong> cold</li>
+        <li><strong>Riesgo stale:</strong> medium</li>
+        <li><strong>Repos:</strong> 1</li>
+        <li><strong>Score:</strong> 48 (confianza 0.95)</li>
+        <li><strong>Próxima acción:</strong> revisar la sección de proyectos y alinear el portfolio con el estado actual del resto de iniciativas</li>
+        <li><strong>Bloqueos:</strong> ninguno</li>
+      </ul>
+      <details>
+        <summary>Razones</summary>
+        <ul><li>última actualización humana hace 4 día(s)</li><li>última actividad de repo hace 14 día(s)</li><li>tiene próxima acción definida</li></ul>
+      </details>
+      
+    </section>
+  
+
+    <section class="card green">
+      <div class="row between">
+        <h2>NexusAI / Nexus Security</h2>
+        <span class="pill">active</span>
+      </div>
+      <p>Landing y presencia comercial enfocada en automatización, seguridad e IA aplicada para empresas de LATAM bajo la marca NexusAI.</p>
+      <ul>
+        <li><strong>Owner:</strong> ndf</li>
+        <li><strong>Prioridad:</strong> medium</li>
+        <li><strong>Esfuerzo:</strong> medium</li>
+        <li><strong>Avance:</strong> 55%</li>
+        <li><strong>Freshness:</strong> warm</li>
+        <li><strong>Temperatura:</strong> warm</li>
+        <li><strong>Riesgo stale:</strong> medium</li>
+        <li><strong>Repos:</strong> 1</li>
+        <li><strong>Score:</strong> 55 (confianza 0.95)</li>
+        <li><strong>Próxima acción:</strong> auditar el mensaje principal del sitio y priorizar mejoras concretas de conversión</li>
+        <li><strong>Bloqueos:</strong> ninguno</li>
+      </ul>
+      <details>
+        <summary>Razones</summary>
+        <ul><li>última actualización humana hace 4 día(s)</li><li>última actividad de repo hace 7 día(s)</li><li>tiene próxima acción definida</li></ul>
+      </details>
+      
+    </section>
+  
+
+    <section class="card green">
+      <div class="row between">
+        <h2>The Architect</h2>
+        <span class="pill">active</span>
+      </div>
+      <p>Meta-agente que diseña blueprints de software completos para que otros agentes puedan ejecutar la construcción de punta a punta.</p>
+      <ul>
+        <li><strong>Owner:</strong> ndf</li>
+        <li><strong>Prioridad:</strong> high</li>
+        <li><strong>Esfuerzo:</strong> large</li>
+        <li><strong>Avance:</strong> 70%</li>
+        <li><strong>Freshness:</strong> warm</li>
+        <li><strong>Temperatura:</strong> cold</li>
+        <li><strong>Riesgo stale:</strong> medium</li>
+        <li><strong>Repos:</strong> 1</li>
+        <li><strong>Score:</strong> 47 (confianza 0.95)</li>
+        <li><strong>Próxima acción:</strong> contrastar blueprints generados contra proyectos reales y cerrar gaps de implementación repetidos</li>
+        <li><strong>Bloqueos:</strong> ninguno</li>
+      </ul>
+      <details>
+        <summary>Razones</summary>
+        <ul><li>última actualización humana hace 4 día(s)</li><li>última actividad de repo hace 17 día(s)</li><li>tiene próxima acción definida</li></ul>
+      </details>
+      
+    </section>
+  
+
+    <section class="card unknown">
+      <div class="row between">
+        <h2>Proyecto Arenero</h2>
+        <span class="pill">unknown</span>
+      </div>
+      <p>Sin resumen</p>
+      <ul>
+        <li><strong>Owner:</strong> ndf</li>
+        <li><strong>Prioridad:</strong> medium</li>
+        <li><strong>Esfuerzo:</strong> -</li>
+        <li><strong>Avance:</strong> -%</li>
+        <li><strong>Freshness:</strong> unknown</li>
+        <li><strong>Temperatura:</strong> cold</li>
+        <li><strong>Riesgo stale:</strong> low</li>
+        <li><strong>Repos:</strong> 1</li>
+        <li><strong>Score:</strong> 55 (confianza 0.4)</li>
+        <li><strong>Próxima acción:</strong> -</li>
+        <li><strong>Bloqueos:</strong> ninguno</li>
+      </ul>
+      <details>
+        <summary>Razones</summary>
+        <ul><li>última actividad de repo hace 16 día(s)</li><li>1 warning(s) de calidad de datos</li></ul>
+      </details>
+      <details><summary>Warnings</summary><ul><li>status file no encontrado; se usará metadata mínima del registry</li></ul></details>
+    </section>
+  
+
+    <section class="card unknown">
+      <div class="row between">
+        <h2>Homelab Config Backup</h2>
+        <span class="pill">unknown</span>
+      </div>
+      <p>Sin resumen</p>
+      <ul>
+        <li><strong>Owner:</strong> ndf</li>
+        <li><strong>Prioridad:</strong> medium</li>
+        <li><strong>Esfuerzo:</strong> -</li>
+        <li><strong>Avance:</strong> -%</li>
+        <li><strong>Freshness:</strong> unknown</li>
+        <li><strong>Temperatura:</strong> unknown</li>
+        <li><strong>Riesgo stale:</strong> low</li>
+        <li><strong>Repos:</strong> 1</li>
+        <li><strong>Score:</strong> 70 (confianza 0.4)</li>
+        <li><strong>Próxima acción:</strong> -</li>
+        <li><strong>Bloqueos:</strong> ninguno</li>
+      </ul>
+      <details>
+        <summary>Razones</summary>
+        <ul><li>1 warning(s) de calidad de datos</li></ul>
+      </details>
+      <details><summary>Warnings</summary><ul><li>status file no encontrado; se usará metadata mínima del registry</li></ul></details>
+    </section>
+  
+
+    <section class="card unknown">
+      <div class="row between">
+        <h2>Copiloto Infra Proactivo</h2>
+        <span class="pill">unknown</span>
+      </div>
+      <p>Sin resumen</p>
+      <ul>
+        <li><strong>Owner:</strong> ndf</li>
+        <li><strong>Prioridad:</strong> low</li>
+        <li><strong>Esfuerzo:</strong> -</li>
+        <li><strong>Avance:</strong> -%</li>
+        <li><strong>Freshness:</strong> unknown</li>
+        <li><strong>Temperatura:</strong> unknown</li>
+        <li><strong>Riesgo stale:</strong> low</li>
+        <li><strong>Repos:</strong> 1</li>
+        <li><strong>Score:</strong> 70 (confianza 0.4)</li>
+        <li><strong>Próxima acción:</strong> -</li>
+        <li><strong>Bloqueos:</strong> ninguno</li>
+      </ul>
+      <details>
+        <summary>Razones</summary>
+        <ul><li>1 warning(s) de calidad de datos</li></ul>
+      </details>
+      <details><summary>Warnings</summary><ul><li>status file no encontrado; se usará metadata mínima del registry</li></ul></details>
+    </section>
+  
+
+    <section class="card unknown">
+      <div class="row between">
+        <h2>Cursify</h2>
+        <span class="pill">unknown</span>
+      </div>
+      <p>Sin resumen</p>
+      <ul>
+        <li><strong>Owner:</strong> ndf</li>
+        <li><strong>Prioridad:</strong> low</li>
+        <li><strong>Esfuerzo:</strong> -</li>
+        <li><strong>Avance:</strong> -%</li>
+        <li><strong>Freshness:</strong> unknown</li>
+        <li><strong>Temperatura:</strong> unknown</li>
+        <li><strong>Riesgo stale:</strong> low</li>
+        <li><strong>Repos:</strong> 1</li>
+        <li><strong>Score:</strong> 70 (confianza 0.4)</li>
+        <li><strong>Próxima acción:</strong> -</li>
+        <li><strong>Bloqueos:</strong> ninguno</li>
+      </ul>
+      <details>
+        <summary>Razones</summary>
+        <ul><li>1 warning(s) de calidad de datos</li></ul>
+      </details>
+      <details><summary>Warnings</summary><ul><li>status file no encontrado; se usará metadata mínima del registry</li></ul></details>
+    </section>
+  
+
+    <section class="card unknown">
+      <div class="row between">
+        <h2>ML Serving Infrastructure</h2>
+        <span class="pill">unknown</span>
+      </div>
+      <p>Sin resumen</p>
+      <ul>
+        <li><strong>Owner:</strong> ndf</li>
+        <li><strong>Prioridad:</strong> low</li>
+        <li><strong>Esfuerzo:</strong> -</li>
+        <li><strong>Avance:</strong> -%</li>
+        <li><strong>Freshness:</strong> unknown</li>
+        <li><strong>Temperatura:</strong> unknown</li>
+        <li><strong>Riesgo stale:</strong> low</li>
+        <li><strong>Repos:</strong> 1</li>
+        <li><strong>Score:</strong> 70 (confianza 0.4)</li>
+        <li><strong>Próxima acción:</strong> -</li>
+        <li><strong>Bloqueos:</strong> ninguno</li>
+      </ul>
+      <details>
+        <summary>Razones</summary>
+        <ul><li>1 warning(s) de calidad de datos</li></ul>
+      </details>
+      <details><summary>Warnings</summary><ul><li>status file no encontrado; se usará metadata mínima del registry</li></ul></details>
+    </section>
+  
+
+    <section class="card unknown">
+      <div class="row between">
+        <h2>Nestor Consulting Web</h2>
+        <span class="pill">unknown</span>
+      </div>
+      <p>Sin resumen</p>
+      <ul>
+        <li><strong>Owner:</strong> ndf</li>
+        <li><strong>Prioridad:</strong> low</li>
+        <li><strong>Esfuerzo:</strong> -</li>
+        <li><strong>Avance:</strong> -%</li>
+        <li><strong>Freshness:</strong> unknown</li>
+        <li><strong>Temperatura:</strong> unknown</li>
+        <li><strong>Riesgo stale:</strong> low</li>
+        <li><strong>Repos:</strong> 1</li>
+        <li><strong>Score:</strong> 70 (confianza 0.4)</li>
+        <li><strong>Próxima acción:</strong> -</li>
+        <li><strong>Bloqueos:</strong> ninguno</li>
+      </ul>
+      <details>
+        <summary>Razones</summary>
+        <ul><li>1 warning(s) de calidad de datos</li></ul>
+      </details>
+      <details><summary>Warnings</summary><ul><li>status file no encontrado; se usará metadata mínima del registry</li></ul></details>
     </section>
   
     </section>

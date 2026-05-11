@@ -37,3 +37,199 @@ projects:
       topic: telegram://topic/1417
       site: https://www.nestorfleitas.ar/project-dashboard/
     tags: [infra, reporting, portfolio]
+
+  - id: assistant-tech-radar
+    name: Assistant Tech Radar
+    owner: ndf
+    type: infra
+    priority: high
+    visibility: internal
+    status_source:
+      type: repo_file
+      location: .project/PROJECT_STATUS.yaml
+    repos:
+      - slug: assistant-tech-radar
+    links:
+      docs: /home/ndf/workspace/assistant-tech-radar/README.md
+    tags: [research, infra, automation, radar]
+
+  - id: ai-effort-planner
+    name: AI Effort Planner
+    owner: ndf
+    type: infra
+    priority: high
+    visibility: internal
+    status_source:
+      type: repo_file
+      location: .project/PROJECT_STATUS.yaml
+    repos:
+      - slug: ai-effort-planner
+    links:
+      docs: /home/ndf/workspace/ai-effort-planner/README.md
+    tags: [planning, automation, agents, cron]
+
+  - id: cocina-media-center
+    name: Cocina Media Center
+    owner: ndf
+    type: infra
+    priority: medium
+    visibility: internal
+    status_source:
+      type: repo_file
+      location: .project/PROJECT_STATUS.yaml
+    repos:
+      - slug: cocina-media-center
+    links:
+      docs: /home/ndf/workspace/cocina-media-center/README.md
+    tags: [media-center, home, raspberry, automation]
+
+  - id: nexus-operator
+    name: Nexus Operator
+    owner: ndf
+    type: product
+    priority: high
+    visibility: internal
+    status_source:
+      type: repo_file
+      location: .project/PROJECT_STATUS.yaml
+    repos:
+      - slug: Groso_modernizado
+    links:
+      docs: /home/ndf/workspace/Groso_modernizado/README.md
+    tags: [operator, console, multimodal, homelab]
+
+  - id: personal-site
+    name: ndf14685.github.io
+    owner: ndf
+    type: web
+    priority: medium
+    visibility: public
+    status_source:
+      type: repo_file
+      location: .project/PROJECT_STATUS.yaml
+    repos:
+      - slug: ndf14685.github.io
+    links:
+      repo: https://github.com/ndf14685/ndf14685.github.io
+    tags: [web, portfolio, personal-brand]
+
+  - id: nexus-security
+    name: NexusAI / Nexus Security
+    owner: ndf
+    type: product
+    priority: medium
+    visibility: internal
+    status_source:
+      type: repo_file
+      location: .project/PROJECT_STATUS.yaml
+    repos:
+      - slug: nexus-security
+    links:
+      site: https://nexus-ai.lat/
+    tags: [security, consulting, landing, ai]
+
+  - id: the-architect
+    name: The Architect
+    owner: ndf
+    type: infra
+    priority: high
+    visibility: internal
+    status_source:
+      type: repo_file
+      location: .project/PROJECT_STATUS.yaml
+    repos:
+      - slug: the-architect
+    links:
+      docs: /home/ndf/workspace/the-architect/README.md
+    tags: [meta-agent, blueprints, architecture, agents]
+
+  - id: proyecto-arenero
+    name: Proyecto Arenero
+    owner: ndf
+    type: hardware
+    priority: medium
+    visibility: public
+    status_source:
+      type: repo_file
+      location: .project/PROJECT_STATUS.yaml
+    repos:
+      - slug: Proyecto-Arenero
+    links:
+      repo: https://github.com/ndf14685/Proyecto-Arenero
+      docs: https://github.com/ndf14685/Proyecto-Arenero#readme
+    tags: [hardware, arenero, docs, personal]
+
+  - id: homelab-config-backup
+    name: Homelab Config Backup
+    owner: ndf
+    type: infra
+    priority: medium
+    visibility: internal
+    status_source:
+      type: repo_file
+      location: .project/PROJECT_STATUS.yaml
+    repos:
+      - slug: homelab-config-backup
+    links:
+      repo: https://github.com/ndf14685/homelab-config-backup
+    tags: [infra, backup, homelab, openclaw]
+
+  - id: copiloto-infra-proactivo
+    name: Copiloto Infra Proactivo
+    owner: ndf
+    type: product
+    priority: low
+    visibility: internal
+    status_source:
+      type: repo_file
+      location: .project/PROJECT_STATUS.yaml
+    repos:
+      - slug: copiloto-infra-proactivo
+    links:
+      repo: https://github.com/ndf14685/copiloto-infra-proactivo
+    tags: [voice, infra, monitoring, lan, rayban]
+
+  - id: cursify
+    name: Cursify
+    owner: ndf
+    type: product
+    priority: low
+    visibility: internal
+    status_source:
+      type: repo_file
+      location: .project/PROJECT_STATUS.yaml
+    repos:
+      - slug: cursify
+    links:
+      repo: https://github.com/ndf14685/cursify
+    tags: [saas, courses, latam, marketplace, mercadopago]
+
+  - id: ml-serving-infrastructure
+    name: ML Serving Infrastructure
+    owner: ndf
+    type: showcase
+    priority: low
+    visibility: public
+    status_source:
+      type: repo_file
+      location: .project/PROJECT_STATUS.yaml
+    repos:
+      - slug: ml-serving-infrastructure
+    links:
+      repo: https://github.com/ndf14685/ml-serving-infrastructure
+    tags: [devops, fastapi, kubernetes, terraform, showcase]
+
+  - id: nestor-consulting-web
+    name: Nestor Consulting Web
+    owner: ndf
+    type: web
+    priority: low
+    visibility: public
+    status_source:
+      type: repo_file
+      location: .project/PROJECT_STATUS.yaml
+    repos:
+      - slug: nestor-consulting-web
+    links:
+      repo: https://github.com/ndf14685/nestor-consulting-web
+    tags: [web, consulting, personal-brand]
