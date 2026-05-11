@@ -1,5 +1,12 @@
 # Uso
 
+## Alta de un repo nuevo
+
+Antes de iterar en cualquier repo nuevo seguir el checklist de
+[`onboarding-new-repo.md`](onboarding-new-repo.md). El repo no se considera
+"creado" hasta que está en `registry/projects.yaml` y tiene su
+`.project/PROJECT_STATUS.yaml`.
+
 ## Build local
 
 ```bash

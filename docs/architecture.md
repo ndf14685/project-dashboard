@@ -10,6 +10,8 @@ El dashboard debe ser una vista ejecutiva confiable, no un sistema que adivina p
 - `PROJECT_STATUS.yaml` define el estado humano-curado
 - las señales automáticas enriquecen pero no sobrescriben el estado declarado
 - el publisher publica snapshots, no reescribe fuentes operativas
+- todo repo nuevo se registra en el dashboard como paso obligatorio del alta;
+  ver [`onboarding-new-repo.md`](onboarding-new-repo.md)
 
 ## Componentes
 

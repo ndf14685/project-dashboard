@@ -36,3 +36,10 @@ Dar una vista ejecutiva y anti-olvido del portfolio sin inventar progreso desde 
 ## Regla clave
 
 Nunca derivar automáticamente el estado real del proyecto desde commits, PRs o issues. Esas señales solo enriquecen contexto.
+
+## Regla de alta de proyectos nuevos
+
+**Todo repositorio nuevo debe registrarse en el dashboard antes de considerarse "creado".**
+Sin entrada en `registry/projects.yaml` y sin `.project/PROJECT_STATUS.yaml` en el repo,
+el proyecto no existe a efectos de portfolio. Ver
+[`docs/onboarding-new-repo.md`](docs/onboarding-new-repo.md) para el checklist.

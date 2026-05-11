@@ -10,13 +10,14 @@ projects:
       type: repo_file
       location: .project/PROJECT_STATUS.yaml
     repos:
-      - slug: carrerops
+      - slug: careerops
     topics:
       - telegram:-1003958513253/1417
     links:
-      repo: https://github.com/ndf14685/carrerops
+      repo: https://github.com/ndf14685/careerops
       topic: telegram://topic/1417
-      docs: https://github.com/ndf14685/carrerops#readme
+      docs: https://github.com/ndf14685/careerops#readme
+      local: /home/ndf/workspace/careerops
     tags: [careerops, dashboard, product]
 
   - id: project-dashboard
@@ -36,6 +37,7 @@ projects:
       repo: https://github.com/ndf14685/project-dashboard
       topic: telegram://topic/1417
       site: https://www.nestorfleitas.ar/project-dashboard/
+      local: /home/ndf/workspace/project-dashboard
     tags: [infra, reporting, portfolio]
 
   - id: assistant-tech-radar
@@ -51,6 +53,7 @@ projects:
       - slug: assistant-tech-radar
     links:
       docs: /home/ndf/workspace/assistant-tech-radar/README.md
+      local: /home/ndf/workspace/assistant-tech-radar
     tags: [research, infra, automation, radar]
 
   - id: ai-effort-planner
@@ -66,6 +69,7 @@ projects:
       - slug: ai-effort-planner
     links:
       docs: /home/ndf/workspace/ai-effort-planner/README.md
+      local: /home/ndf/workspace/ai-effort-planner
     tags: [planning, automation, agents, cron]
 
   - id: cocina-media-center
@@ -81,6 +85,7 @@ projects:
       - slug: cocina-media-center
     links:
       docs: /home/ndf/workspace/cocina-media-center/README.md
+      local: /home/ndf/workspace/cocina-media-center
     tags: [media-center, home, raspberry, automation]
 
   - id: nexus-operator
@@ -96,6 +101,7 @@ projects:
       - slug: Groso_modernizado
     links:
       docs: /home/ndf/workspace/Groso_modernizado/README.md
+      local: /home/ndf/workspace/Groso_modernizado
     tags: [operator, console, multimodal, homelab]
 
   - id: personal-site
@@ -111,6 +117,7 @@ projects:
       - slug: ndf14685.github.io
     links:
       repo: https://github.com/ndf14685/ndf14685.github.io
+      local: /home/ndf/workspace/ndf14685.github.io
     tags: [web, portfolio, personal-brand]
 
   - id: nexus-security
@@ -126,6 +133,7 @@ projects:
       - slug: nexus-security
     links:
       site: https://nexus-ai.lat/
+      local: /home/ndf/workspace/nexus-security
     tags: [security, consulting, landing, ai]
 
   - id: the-architect
@@ -141,6 +149,7 @@ projects:
       - slug: the-architect
     links:
       docs: /home/ndf/workspace/the-architect/README.md
+      local: /home/ndf/workspace/the-architect
     tags: [meta-agent, blueprints, architecture, agents]
 
   - id: proyecto-arenero
@@ -157,6 +166,7 @@ projects:
     links:
       repo: https://github.com/ndf14685/Proyecto-Arenero
       docs: https://github.com/ndf14685/Proyecto-Arenero#readme
+      local: /home/ndf/.openclaw/workspace/Proyecto-Arenero
     tags: [hardware, arenero, docs, personal]
 
   - id: homelab-config-backup
@@ -172,6 +182,7 @@ projects:
       - slug: homelab-config-backup
     links:
       repo: https://github.com/ndf14685/homelab-config-backup
+      local: /home/ndf/.openclaw/workspace/github/homelab-config-backup
     tags: [infra, backup, homelab, openclaw]
 
   - id: copiloto-infra-proactivo
@@ -187,6 +198,7 @@ projects:
       - slug: copiloto-infra-proactivo
     links:
       repo: https://github.com/ndf14685/copiloto-infra-proactivo
+      local: /home/ndf/.openclaw/workspace/github/copiloto-infra-proactivo
     tags: [voice, infra, monitoring, lan, rayban]
 
   - id: cursify
@@ -202,6 +214,7 @@ projects:
       - slug: cursify
     links:
       repo: https://github.com/ndf14685/cursify
+      local: /home/ndf/.openclaw/workspace/github/cursify
     tags: [saas, courses, latam, marketplace, mercadopago]
 
   - id: ml-serving-infrastructure
@@ -217,6 +230,7 @@ projects:
       - slug: ml-serving-infrastructure
     links:
       repo: https://github.com/ndf14685/ml-serving-infrastructure
+      local: /home/ndf/.openclaw/workspace/github/ml-serving-infrastructure
     tags: [devops, fastapi, kubernetes, terraform, showcase]
 
   - id: nestor-consulting-web
@@ -229,7 +243,8 @@ projects:
       type: repo_file
       location: .project/PROJECT_STATUS.yaml
     repos:
-      - slug: nestor-consulting-web
+      - slug: nestorfleitas.ar
     links:
-      repo: https://github.com/ndf14685/nestor-consulting-web
+      repo: https://github.com/ndf14685/nestorfleitas.ar
+      local: /home/ndf/.openclaw/workspace/github/nestorfleitas.ar
     tags: [web, consulting, personal-brand]
