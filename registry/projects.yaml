@@ -36,7 +36,7 @@ projects:
     links:
       repo: https://github.com/ndf14685/project-dashboard
       topic: telegram://topic/1417
-      site: https://www.nestorfleitas.ar/project-dashboard/
+      site: https://www.nestorfleitas.ar/dashboard/
       local: /home/ndf/workspace/project-dashboard
     tags: [infra, reporting, portfolio]
 
@@ -105,7 +105,7 @@ projects:
     tags: [operator, console, multimodal, homelab]
 
   - id: personal-site
-    name: ndf14685.github.io
+    name: nestorfleitas.ar
     owner: ndf
     type: web
     priority: medium
@@ -121,7 +121,7 @@ projects:
     tags: [web, portfolio, personal-brand]
 
   - id: nexus-security
-    name: NexusAI / Nexus Security
+    name: nexus-ai.lat
     owner: ndf
     type: product
     priority: medium
@@ -156,6 +156,7 @@ projects:
     name: Proyecto Arenero
     owner: ndf
     type: hardware
+    category: non-it
     priority: medium
     visibility: public
     status_source:

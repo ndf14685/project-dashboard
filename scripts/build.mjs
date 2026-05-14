@@ -12,6 +12,14 @@ const ALLOWED_STAGE = new Set(['idea', 'active', 'paused', 'blocked', 'done', 'm
 const ALLOWED_PRIORITY = new Set(['low', 'medium', 'high', 'critical']);
 const ALLOWED_EFFORT = new Set(['tiny', 'small', 'medium', 'large', 'huge']);
 const ALLOWED_HEALTH = new Set(['green', 'yellow', 'red']);
+const ALLOWED_CATEGORY = new Set(['it', 'non-it']);
+
+function normalizeCategory(value) {
+  if (!value) return 'it';
+  const v = String(value).toLowerCase().trim();
+  if (v === 'non-it' || v === 'no-it' || v === 'noit' || v === 'no_it') return 'non-it';
+  return 'it';
+}
 
 function readYaml(filePath) {
   return YAML.parse(fs.readFileSync(filePath, 'utf8'));
@@ -125,6 +133,9 @@ function validateRegistry(registry, issues) {
     if (entry.priority && !ALLOWED_PRIORITY.has(entry.priority)) {
       pushIssue(issues, 'warning', entry.id, `priority fuera de vocabulario: ${entry.priority}`);
     }
+    if (entry.category && !ALLOWED_CATEGORY.has(entry.category)) {
+      pushIssue(issues, 'warning', entry.id, `category fuera de vocabulario: ${entry.category} (usar it | non-it)`);
+    }
     if (!Array.isArray(entry.repos) || entry.repos.length === 0) {
       pushIssue(issues, 'warning', entry.id, 'no tiene repos asociados');
     }
@@ -223,6 +234,7 @@ function buildProject(entry, issues, localRegistry) {
     name: entry.name,
     owner: entry.owner,
     type: entry.type,
+    category: normalizeCategory(entry.category),
     priority: status?.priority || entry.priority || null,
     stage: status?.stage || 'unknown',
     effort: status?.effort || null,
@@ -270,6 +282,8 @@ function summarize(projects, issues) {
     needs_decision: projects.filter(p => p.needs_decision).length,
     high_stale_risk: projects.filter(p => p.stale_risk === 'high').length,
     warnings: issues.filter(issue => issue.level === 'warning').length,
+    it_count: projects.filter(p => p.category === 'it').length,
+    non_it_count: projects.filter(p => p.category === 'non-it').length,
     avg_score: projects.length
       ? Number((projects.reduce((sum, p) => sum + p.score, 0) / projects.length).toFixed(1))
       : null,
@@ -411,15 +425,22 @@ function computeStats(projects) {
 }
 
 function renderMainCard(p) {
+  const categoryBadge = p.category === 'non-it'
+    ? `<span class="pill cat-non-it" title="Proyecto no-IT">Non-IT</span>`
+    : '';
   return `
-    <section class="card ${escapeHtml(p.health)}">
+    <section class="card ${escapeHtml(p.health)} cat-${escapeHtml(p.category)}" data-category="${escapeHtml(p.category)}">
       <div class="row between">
         <h2>${escapeHtml(p.name)}</h2>
-        <span class="pill">${escapeHtml(p.stage)}</span>
+        <div class="row" style="gap:6px;">
+          ${categoryBadge}
+          <span class="pill">${escapeHtml(p.stage)}</span>
+        </div>
       </div>
       <p>${escapeHtml(p.summary || 'Sin resumen')}</p>
       <ul>
         <li><strong>Owner:</strong> ${escapeHtml(p.owner || '-')}</li>
+        <li><strong>Tipo:</strong> ${escapeHtml(p.type || '-')} ${p.category === 'non-it' ? '· <em>no-IT</em>' : ''}</li>
         <li><strong>Prioridad:</strong> ${escapeHtml(p.priority || '-')}</li>
         <li><strong>Esfuerzo:</strong> ${escapeHtml(p.effort || '-')}</li>
         <li><strong>Avance:</strong> ${p.progress_pct ?? '-'}%</li>
@@ -443,11 +464,17 @@ function renderMainCard(p) {
 function renderMiniCard(p) {
   const pct = p.progress_pct ?? 0;
   const blockers = p.blockers.length ? `<small class="blockers">⚠ ${p.blockers.length} bloqueo(s)</small>` : '';
+  const categoryBadge = p.category === 'non-it'
+    ? `<span class="pill small cat-non-it" title="Proyecto no-IT">Non-IT</span>`
+    : '';
   return `
-    <article class="mini-card ${escapeHtml(p.health)}">
+    <article class="mini-card ${escapeHtml(p.health)} cat-${escapeHtml(p.category)}" data-category="${escapeHtml(p.category)}">
       <div class="row between">
         <strong>${escapeHtml(p.name)}</strong>
-        <span class="pill small">${escapeHtml(p.priority || '-')}</span>
+        <span class="row" style="gap:4px;">
+          ${categoryBadge}
+          <span class="pill small">${escapeHtml(p.priority || '-')}</span>
+        </span>
       </div>
       <div class="mini-meta">
         <span>${escapeHtml(p.effort || '-')}</span>
@@ -548,6 +575,7 @@ function renderHtml(snapshot) {
   const cards = snapshot.projects.map(renderMainCard).join('\n');
   const kanban = renderKanban(snapshot.projects);
   const stats = renderStats(computeStats(snapshot.projects));
+  const showNonItFilter = snapshot.summary.non_it_count > 0;
 
   const issuesSection = snapshot.issues.length
     ? `<section class="card"><h2>Warnings</h2><ul>${snapshot.issues.map(issue => `<li>[${escapeHtml(issue.project_id || 'global')}] ${escapeHtml(issue.message)}</li>`).join('')}</ul></section>`
@@ -628,6 +656,50 @@ function renderHtml(snapshot) {
     .mini-card.green  { border-left-color: #34d399; }
     .mini-card.yellow { border-left-color: #fbbf24; }
     .mini-card.red    { border-left-color: #f87171; }
+
+    /* Non-IT differentiation: warmer earth-tone tint + dashed border */
+    .card.cat-non-it {
+      background: linear-gradient(180deg, #2a2010 0%, #1a1a25 100%);
+      border-color: #b58a3e;
+      border-style: dashed;
+    }
+    .mini-card.cat-non-it {
+      background: #221a10;
+      border-color: #b58a3e;
+      border-style: dashed;
+    }
+    .pill.cat-non-it {
+      background: #b58a3e;
+      color: #1a1208;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    /* Filter bar */
+    .filter-bar {
+      display: flex; align-items: center; gap: 10px;
+      margin: 0 0 14px; padding: 10px 12px;
+      background: #121933; border: 1px solid #24304f; border-radius: 10px;
+      flex-wrap: wrap;
+    }
+    .filter-bar > strong { color: #cbd5f5; font-size: 13px; }
+    .filter-bar .filter-btn {
+      background: #1f2a44; color: #cbd5f5; border: 1px solid #24304f;
+      border-radius: 999px; padding: 5px 12px; font-size: 12px;
+      cursor: pointer; font-family: inherit;
+    }
+    .filter-bar .filter-btn:hover { color: #fff; border-color: #3b4b75; }
+    .filter-bar .filter-btn.active {
+      background: #60a5fa; color: #0b1020; border-color: #60a5fa; font-weight: 600;
+    }
+    .filter-bar .filter-btn[data-filter="non-it"].active {
+      background: #b58a3e; color: #1a1208; border-color: #b58a3e;
+    }
+    .filter-bar .filter-count { color: #94a3b8; font-size: 12px; }
+    [data-category].filtered-out { display: none !important; }
+    .kanban-col.filtered-empty .kanban-cards::after {
+      content: '—'; color: #64748b; text-align: center; display: block; margin: 16px 0; font-size: 13px;
+    }
     .mini-card strong { font-size: 13px; }
     .mini-meta { color: #94a3b8; font-size: 11px; margin: 6px 0; display: flex; gap: 6px; flex-wrap: wrap; }
     .freshness-fresh { color: #34d399; }
@@ -668,6 +740,12 @@ function renderHtml(snapshot) {
   <main>
     <h1>Project Dashboard</h1>
     <p>Generado: ${escapeHtml(snapshot.generated_at)}</p>
+    <div class="filter-bar" role="group" aria-label="Filtro por categoría">
+      <strong>Categoría:</strong>
+      <button type="button" class="filter-btn active" data-filter="all">Todos <span class="filter-count">(${snapshot.summary.total})</span></button>
+      <button type="button" class="filter-btn" data-filter="it">IT <span class="filter-count">(${snapshot.summary.it_count})</span></button>
+      ${showNonItFilter ? `<button type="button" class="filter-btn" data-filter="non-it">Non-IT <span class="filter-count">(${snapshot.summary.non_it_count})</span></button>` : ''}
+    </div>
     <nav class="tabs" role="tablist">
       <button type="button" data-tab="resumen" class="active" role="tab" aria-selected="true">Resumen</button>
       <button type="button" data-tab="kanban" role="tab" aria-selected="false">Kanban</button>
@@ -714,6 +792,29 @@ function renderHtml(snapshot) {
           if (target) target.classList.add('active');
         });
       });
+
+      const filterBtns = document.querySelectorAll('.filter-bar .filter-btn');
+      function applyFilter(filter) {
+        const cards = document.querySelectorAll('[data-category]');
+        cards.forEach((el) => {
+          const cat = el.getAttribute('data-category');
+          const show = filter === 'all' || cat === filter;
+          el.classList.toggle('filtered-out', !show);
+        });
+        document.querySelectorAll('.kanban-col').forEach((col) => {
+          const visible = col.querySelectorAll('[data-category]:not(.filtered-out)').length;
+          const countEl = col.querySelector('.kanban-col-header .count');
+          if (countEl) countEl.textContent = visible;
+          col.classList.toggle('filtered-empty', visible === 0);
+        });
+      }
+      filterBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          applyFilter(btn.dataset.filter);
+        });
+      });
     })();
   </script>
 </body>
@@ -725,7 +826,8 @@ function main() {
   const registry = readYaml(registryPath);
   const localRegistry = readOptionalYaml(localRegistryPath);
   validateRegistry(registry, issues);
-  const projects = (registry.projects || []).map(entry => buildProject(entry, issues, localRegistry));
+  const allProjects = (registry.projects || []).map(entry => buildProject(entry, issues, localRegistry));
+  const projects = allProjects.filter(project => project.category === 'it');
   const snapshot = {
     generated_at: new Date().toISOString(),
     summary: summarize(projects, issues),

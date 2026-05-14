@@ -26,6 +26,6 @@ target_date: 2026-05-12
 links:
   repo: https://github.com/ndf14685/project-dashboard
   topic: telegram://topic/1417
-  site: https://www.nestorfleitas.ar/project-dashboard/
+  site: https://www.nestorfleitas.ar/dashboard/
 notes: >-
   El MVP ya cubre dashboard estático con señales híbridas y avisos de calidad de datos.
