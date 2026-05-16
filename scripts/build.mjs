@@ -8,7 +8,7 @@ const registryPath = path.join(root, 'registry', 'projects.yaml');
 const localRegistryPath = path.join(root, 'registry', 'projects.local.yaml');
 const distDir = path.join(root, 'dist');
 
-const ALLOWED_STAGE = new Set(['idea', 'active', 'paused', 'blocked', 'done', 'maintenance']);
+const ALLOWED_STAGE = new Set(['idea', 'active', 'testing', 'paused', 'blocked', 'done', 'maintenance']);
 const ALLOWED_PRIORITY = new Set(['low', 'medium', 'high', 'critical']);
 const ALLOWED_EFFORT = new Set(['tiny', 'small', 'medium', 'large', 'huge']);
 const ALLOWED_HEALTH = new Set(['green', 'yellow', 'red']);
@@ -376,6 +376,7 @@ function bucketKanban(projects) {
     if (stage === 'idea') buckets.backlog.push(p);
     else if (stage === 'done') buckets.done.push(p);
     else if (stage === 'paused' || stage === 'maintenance' || stage === 'blocked') buckets.history.push(p);
+    else if (stage === 'testing') buckets.test.push(p);
     else if (stage === 'active') {
       if (pct < 10) buckets.todo.push(p);
       else if (pct < 70) buckets.doing.push(p);

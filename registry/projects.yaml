@@ -40,6 +40,24 @@ projects:
       local: /home/ndf/workspace/project-dashboard
     tags: [infra, reporting, portfolio]
 
+  - id: agenteit
+    name: AgenteIT
+    owner: ndf
+    type: infra
+    priority: high
+    visibility: private
+    status_source:
+      type: repo_file
+      location: .project/PROJECT_STATUS.yaml
+    repos:
+      - slug: AgenteIT
+    topics:
+      - telegram:-1003958513253/1417
+    links:
+      repo: https://github.com/ndf14685/AgenteIT
+      local: /home/ndf/workspace/AgenteIT
+    tags: [infra, openclaw, telegram, codex, claude, gemini, ollama, terraform, ansible]
+
   - id: assistant-tech-radar
     name: Assistant Tech Radar
     owner: ndf

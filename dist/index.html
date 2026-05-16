@@ -156,11 +156,11 @@
 <body>
   <main>
     <h1>Project Dashboard</h1>
-    <p>Generado: 2026-05-14T13:30:12.125Z</p>
+    <p>Generado: 2026-05-16T00:14:55.625Z</p>
     <div class="filter-bar" role="group" aria-label="Filtro por categoría">
       <strong>Categoría:</strong>
-      <button type="button" class="filter-btn active" data-filter="all">Todos <span class="filter-count">(14)</span></button>
-      <button type="button" class="filter-btn" data-filter="it">IT <span class="filter-count">(14)</span></button>
+      <button type="button" class="filter-btn active" data-filter="all">Todos <span class="filter-count">(15)</span></button>
+      <button type="button" class="filter-btn" data-filter="it">IT <span class="filter-count">(15)</span></button>
       
     </div>
     <nav class="tabs" role="tablist">
@@ -171,15 +171,15 @@
 
     <section class="tab active" id="tab-resumen" role="tabpanel">
       <section class="summary">
-        <div class="metric"><strong>Total</strong><br/>14</div>
+        <div class="metric"><strong>Total</strong><br/>15</div>
         <div class="metric"><strong>Activos</strong><br/>9</div>
         <div class="metric"><strong>Pausados</strong><br/>1</div>
         <div class="metric"><strong>Bloqueados</strong><br/>0</div>
-        <div class="metric"><strong>Stale</strong><br/>2</div>
+        <div class="metric"><strong>Stale</strong><br/>9</div>
         <div class="metric"><strong>Riesgo alto</strong><br/>5</div>
         <div class="metric"><strong>Warnings</strong><br/>0</div>
-        <div class="metric"><strong>Carga</strong><br/>57</div>
-        <div class="metric"><strong>Score promedio</strong><br/>47.2</div>
+        <div class="metric"><strong>Carga</strong><br/>62</div>
+        <div class="metric"><strong>Score promedio</strong><br/>46</div>
       </section>
       
       <section class="grid">
@@ -200,16 +200,16 @@
         <li><strong>Esfuerzo:</strong> large</li>
         <li><strong>Avance:</strong> 55%</li>
         <li><strong>Freshness:</strong> stale</li>
-        <li><strong>Temperatura:</strong> hot</li>
-        <li><strong>Riesgo stale:</strong> medium</li>
+        <li><strong>Temperatura:</strong> warm</li>
+        <li><strong>Riesgo stale:</strong> high</li>
         <li><strong>Repos:</strong> 1</li>
-        <li><strong>Score:</strong> 52 (confianza 0.95)</li>
+        <li><strong>Score:</strong> 49 (confianza 0.95)</li>
         <li><strong>Próxima acción:</strong> conectar el dashboard con reporting diario y priorización visible de vacantes</li>
         <li><strong>Bloqueos:</strong> ninguno</li>
       </ul>
       <details>
         <summary>Razones</summary>
-        <ul><li>última actualización humana hace 8 día(s)</li><li>última actividad de repo hace 2 día(s)</li><li>tiene próxima acción definida</li></ul>
+        <ul><li>última actualización humana hace 9 día(s)</li><li>última actividad de repo hace 3 día(s)</li><li>tiene próxima acción definida</li></ul>
       </details>
       
     </section>
@@ -234,13 +234,44 @@
         <li><strong>Temperatura:</strong> hot</li>
         <li><strong>Riesgo stale:</strong> medium</li>
         <li><strong>Repos:</strong> 1</li>
-        <li><strong>Score:</strong> 52 (confianza 0.95)</li>
+        <li><strong>Score:</strong> 51 (confianza 0.95)</li>
         <li><strong>Próxima acción:</strong> validar deploy real en GitHub Pages y cerrar schemas formales</li>
         <li><strong>Bloqueos:</strong> ninguno</li>
       </ul>
       <details>
         <summary>Razones</summary>
-        <ul><li>última actualización humana hace 8 día(s)</li><li>última actividad de repo hace 2 día(s)</li><li>tiene próxima acción definida</li></ul>
+        <ul><li>última actualización humana hace 9 día(s)</li><li>última actividad de repo hace 1 día(s)</li><li>tiene próxima acción definida</li></ul>
+      </details>
+      
+    </section>
+  
+
+    <section class="card yellow cat-it" data-category="it">
+      <div class="row between">
+        <h2>AgenteIT</h2>
+        <div class="row" style="gap:6px;">
+          
+          <span class="pill">testing</span>
+        </div>
+      </div>
+      <p>Infraestructura como codigo para replicar el stack Telegram + OpenClaw + Codex + Claude + Gemini + Ollama en un VPS cloud, con Terraform, Ansible, systemd, Docker Compose para Ollama y documentacion operativa.</p>
+      <ul>
+        <li><strong>Owner:</strong> ndf</li>
+        <li><strong>Tipo:</strong> infra </li>
+        <li><strong>Prioridad:</strong> high</li>
+        <li><strong>Esfuerzo:</strong> large</li>
+        <li><strong>Avance:</strong> 75%</li>
+        <li><strong>Freshness:</strong> fresh</li>
+        <li><strong>Temperatura:</strong> hot</li>
+        <li><strong>Riesgo stale:</strong> low</li>
+        <li><strong>Repos:</strong> 1</li>
+        <li><strong>Score:</strong> 53 (confianza 0.95)</li>
+        <li><strong>Próxima acción:</strong> correr el primer deploy controlado en un VPS de testing y capturar hallazgos</li>
+        <li><strong>Bloqueos:</strong> faltan Terraform y Ansible instalados localmente para validacion completa en esta maquina</li>
+      </ul>
+      <details>
+        <summary>Razones</summary>
+        <ul><li>última actualización humana hace 0 día(s)</li><li>última actividad de repo hace 0 día(s)</li><li>1 bloqueo(s) declarado(s)</li><li>tiene próxima acción definida</li></ul>
       </details>
       
     </section>
@@ -261,17 +292,17 @@
         <li><strong>Prioridad:</strong> high</li>
         <li><strong>Esfuerzo:</strong> medium</li>
         <li><strong>Avance:</strong> 40%</li>
-        <li><strong>Freshness:</strong> warm</li>
-        <li><strong>Temperatura:</strong> warm</li>
+        <li><strong>Freshness:</strong> stale</li>
+        <li><strong>Temperatura:</strong> hot</li>
         <li><strong>Riesgo stale:</strong> medium</li>
         <li><strong>Repos:</strong> 1</li>
-        <li><strong>Score:</strong> 43 (confianza 0.95)</li>
+        <li><strong>Score:</strong> 44 (confianza 0.95)</li>
         <li><strong>Próxima acción:</strong> ejecutar un run real controlado y verificar el output generado de punta a punta</li>
         <li><strong>Bloqueos:</strong> ninguno</li>
       </ul>
       <details>
         <summary>Razones</summary>
-        <ul><li>última actualización humana hace 7 día(s)</li><li>última actividad de repo hace 3 día(s)</li><li>tiene próxima acción definida</li></ul>
+        <ul><li>última actualización humana hace 8 día(s)</li><li>última actividad de repo hace 0 día(s)</li><li>tiene próxima acción definida</li></ul>
       </details>
       
     </section>
@@ -292,17 +323,17 @@
         <li><strong>Prioridad:</strong> high</li>
         <li><strong>Esfuerzo:</strong> medium</li>
         <li><strong>Avance:</strong> 60%</li>
-        <li><strong>Freshness:</strong> warm</li>
+        <li><strong>Freshness:</strong> stale</li>
         <li><strong>Temperatura:</strong> cold</li>
         <li><strong>Riesgo stale:</strong> high</li>
         <li><strong>Repos:</strong> 1</li>
-        <li><strong>Score:</strong> 41 (confianza 0.95)</li>
+        <li><strong>Score:</strong> 39 (confianza 0.95)</li>
         <li><strong>Próxima acción:</strong> probar el planner sobre más blueprints reales y ajustar defaults según resultados</li>
         <li><strong>Bloqueos:</strong> ninguno</li>
       </ul>
       <details>
         <summary>Razones</summary>
-        <ul><li>última actualización humana hace 7 día(s)</li><li>última actividad de repo hace 17 día(s)</li><li>tiene próxima acción definida</li></ul>
+        <ul><li>última actualización humana hace 8 día(s)</li><li>última actividad de repo hace 18 día(s)</li><li>tiene próxima acción definida</li></ul>
       </details>
       
     </section>
@@ -323,17 +354,17 @@
         <li><strong>Prioridad:</strong> medium</li>
         <li><strong>Esfuerzo:</strong> large</li>
         <li><strong>Avance:</strong> 85%</li>
-        <li><strong>Freshness:</strong> warm</li>
+        <li><strong>Freshness:</strong> stale</li>
         <li><strong>Temperatura:</strong> cold</li>
         <li><strong>Riesgo stale:</strong> high</li>
         <li><strong>Repos:</strong> 1</li>
-        <li><strong>Score:</strong> 45 (confianza 0.95)</li>
+        <li><strong>Score:</strong> 42 (confianza 0.95)</li>
         <li><strong>Próxima acción:</strong> verificar periódicamente el estado desplegado y capturar cualquier mejora chica de operabilidad</li>
         <li><strong>Bloqueos:</strong> ninguno</li>
       </ul>
       <details>
         <summary>Razones</summary>
-        <ul><li>última actualización humana hace 7 día(s)</li><li>última actividad de repo hace 11 día(s)</li><li>tiene próxima acción definida</li></ul>
+        <ul><li>última actualización humana hace 8 día(s)</li><li>última actividad de repo hace 12 día(s)</li><li>tiene próxima acción definida</li></ul>
       </details>
       
     </section>
@@ -354,17 +385,17 @@
         <li><strong>Prioridad:</strong> high</li>
         <li><strong>Esfuerzo:</strong> huge</li>
         <li><strong>Avance:</strong> 20%</li>
-        <li><strong>Freshness:</strong> warm</li>
-        <li><strong>Temperatura:</strong> hot</li>
+        <li><strong>Freshness:</strong> stale</li>
+        <li><strong>Temperatura:</strong> warm</li>
         <li><strong>Riesgo stale:</strong> medium</li>
         <li><strong>Repos:</strong> 1</li>
-        <li><strong>Score:</strong> 45 (confianza 0.95)</li>
+        <li><strong>Score:</strong> 41 (confianza 0.95)</li>
         <li><strong>Próxima acción:</strong> implementar el skeleton técnico mínimo del MVP y fijar contratos operativos iniciales</li>
         <li><strong>Bloqueos:</strong> ninguno</li>
       </ul>
       <details>
         <summary>Razones</summary>
-        <ul><li>última actualización humana hace 7 día(s)</li><li>última actividad de repo hace 1 día(s)</li><li>tiene próxima acción definida</li></ul>
+        <ul><li>última actualización humana hace 8 día(s)</li><li>última actividad de repo hace 3 día(s)</li><li>tiene próxima acción definida</li></ul>
       </details>
       
     </section>
@@ -385,17 +416,17 @@
         <li><strong>Prioridad:</strong> medium</li>
         <li><strong>Esfuerzo:</strong> medium</li>
         <li><strong>Avance:</strong> 75%</li>
-        <li><strong>Freshness:</strong> warm</li>
+        <li><strong>Freshness:</strong> stale</li>
         <li><strong>Temperatura:</strong> cold</li>
         <li><strong>Riesgo stale:</strong> high</li>
         <li><strong>Repos:</strong> 1</li>
-        <li><strong>Score:</strong> 41 (confianza 0.95)</li>
+        <li><strong>Score:</strong> 39 (confianza 0.95)</li>
         <li><strong>Próxima acción:</strong> revisar la sección de proyectos y alinear el portfolio con el estado actual del resto de iniciativas</li>
         <li><strong>Bloqueos:</strong> ninguno</li>
       </ul>
       <details>
         <summary>Razones</summary>
-        <ul><li>última actualización humana hace 7 día(s)</li><li>última actividad de repo hace 16 día(s)</li><li>tiene próxima acción definida</li></ul>
+        <ul><li>última actualización humana hace 8 día(s)</li><li>última actividad de repo hace 18 día(s)</li><li>tiene próxima acción definida</li></ul>
       </details>
       
     </section>
@@ -416,17 +447,17 @@
         <li><strong>Prioridad:</strong> medium</li>
         <li><strong>Esfuerzo:</strong> medium</li>
         <li><strong>Avance:</strong> 55%</li>
-        <li><strong>Freshness:</strong> warm</li>
-        <li><strong>Temperatura:</strong> cold</li>
-        <li><strong>Riesgo stale:</strong> high</li>
+        <li><strong>Freshness:</strong> stale</li>
+        <li><strong>Temperatura:</strong> hot</li>
+        <li><strong>Riesgo stale:</strong> medium</li>
         <li><strong>Repos:</strong> 1</li>
-        <li><strong>Score:</strong> 46 (confianza 0.95)</li>
+        <li><strong>Score:</strong> 53 (confianza 0.95)</li>
         <li><strong>Próxima acción:</strong> auditar el mensaje principal del sitio y priorizar mejoras concretas de conversión</li>
         <li><strong>Bloqueos:</strong> ninguno</li>
       </ul>
       <details>
         <summary>Razones</summary>
-        <ul><li>última actualización humana hace 7 día(s)</li><li>última actividad de repo hace 10 día(s)</li><li>tiene próxima acción definida</li></ul>
+        <ul><li>última actualización humana hace 8 día(s)</li><li>última actividad de repo hace 1 día(s)</li><li>tiene próxima acción definida</li></ul>
       </details>
       
     </section>
@@ -447,17 +478,17 @@
         <li><strong>Prioridad:</strong> high</li>
         <li><strong>Esfuerzo:</strong> large</li>
         <li><strong>Avance:</strong> 70%</li>
-        <li><strong>Freshness:</strong> warm</li>
+        <li><strong>Freshness:</strong> stale</li>
         <li><strong>Temperatura:</strong> cold</li>
         <li><strong>Riesgo stale:</strong> high</li>
         <li><strong>Repos:</strong> 1</li>
-        <li><strong>Score:</strong> 41 (confianza 0.95)</li>
+        <li><strong>Score:</strong> 39 (confianza 0.95)</li>
         <li><strong>Próxima acción:</strong> contrastar blueprints generados contra proyectos reales y cerrar gaps de implementación repetidos</li>
         <li><strong>Bloqueos:</strong> ninguno</li>
       </ul>
       <details>
         <summary>Razones</summary>
-        <ul><li>última actualización humana hace 7 día(s)</li><li>última actividad de repo hace 19 día(s)</li><li>tiene próxima acción definida</li></ul>
+        <ul><li>última actualización humana hace 8 día(s)</li><li>última actividad de repo hace 21 día(s)</li><li>tiene próxima acción definida</li></ul>
       </details>
       
     </section>
@@ -482,13 +513,13 @@
         <li><strong>Temperatura:</strong> hot</li>
         <li><strong>Riesgo stale:</strong> low</li>
         <li><strong>Repos:</strong> 1</li>
-        <li><strong>Score:</strong> 70 (confianza 0.95)</li>
+        <li><strong>Score:</strong> 67 (confianza 0.95)</li>
         <li><strong>Próxima acción:</strong> validar que la tarea programada esté corriendo y revisar último backup</li>
         <li><strong>Bloqueos:</strong> ninguno</li>
       </ul>
       <details>
         <summary>Razones</summary>
-        <ul><li>última actualización humana hace 0 día(s)</li><li>última actividad de repo hace 0 día(s)</li><li>tiene próxima acción definida</li></ul>
+        <ul><li>última actualización humana hace 1 día(s)</li><li>última actividad de repo hace 1 día(s)</li><li>tiene próxima acción definida</li></ul>
       </details>
       
     </section>
@@ -513,13 +544,13 @@
         <li><strong>Temperatura:</strong> hot</li>
         <li><strong>Riesgo stale:</strong> low</li>
         <li><strong>Repos:</strong> 1</li>
-        <li><strong>Score:</strong> 45 (confianza 0.95)</li>
+        <li><strong>Score:</strong> 42 (confianza 0.95)</li>
         <li><strong>Próxima acción:</strong> redactar README inicial con visión, casos de uso y MVP recortado</li>
         <li><strong>Bloqueos:</strong> falta decidir si arranca como prototipo voz o como agente LAN puro</li>
       </ul>
       <details>
         <summary>Razones</summary>
-        <ul><li>última actualización humana hace 0 día(s)</li><li>última actividad de repo hace 0 día(s)</li><li>1 bloqueo(s) declarado(s)</li><li>requiere decisión</li><li>tiene próxima acción definida</li></ul>
+        <ul><li>última actualización humana hace 1 día(s)</li><li>última actividad de repo hace 1 día(s)</li><li>1 bloqueo(s) declarado(s)</li><li>requiere decisión</li><li>tiene próxima acción definida</li></ul>
       </details>
       
     </section>
@@ -544,13 +575,13 @@
         <li><strong>Temperatura:</strong> hot</li>
         <li><strong>Riesgo stale:</strong> low</li>
         <li><strong>Repos:</strong> 1</li>
-        <li><strong>Score:</strong> 25 (confianza 0.95)</li>
+        <li><strong>Score:</strong> 22 (confianza 0.95)</li>
         <li><strong>Próxima acción:</strong> decidir continuar/archivar antes de meter más esfuerzo en el MVP</li>
         <li><strong>Bloqueos:</strong> falta validación de mercado / demanda inicial</li>
       </ul>
       <details>
         <summary>Razones</summary>
-        <ul><li>última actualización humana hace 0 día(s)</li><li>última actividad de repo hace 0 día(s)</li><li>1 bloqueo(s) declarado(s)</li><li>requiere decisión</li><li>tiene próxima acción definida</li></ul>
+        <ul><li>última actualización humana hace 1 día(s)</li><li>última actividad de repo hace 1 día(s)</li><li>1 bloqueo(s) declarado(s)</li><li>requiere decisión</li><li>tiene próxima acción definida</li></ul>
       </details>
       
     </section>
@@ -575,13 +606,13 @@
         <li><strong>Temperatura:</strong> hot</li>
         <li><strong>Riesgo stale:</strong> low</li>
         <li><strong>Repos:</strong> 1</li>
-        <li><strong>Score:</strong> 70 (confianza 0.95)</li>
+        <li><strong>Score:</strong> 67 (confianza 0.95)</li>
         <li><strong>Próxima acción:</strong> revisar README/quickstart y dejarlo en estado &quot;vitrina&quot; estable</li>
         <li><strong>Bloqueos:</strong> ninguno</li>
       </ul>
       <details>
         <summary>Razones</summary>
-        <ul><li>última actualización humana hace 0 día(s)</li><li>última actividad de repo hace 0 día(s)</li><li>tiene próxima acción definida</li></ul>
+        <ul><li>última actualización humana hace 1 día(s)</li><li>última actividad de repo hace 1 día(s)</li><li>tiene próxima acción definida</li></ul>
       </details>
       
     </section>
@@ -606,13 +637,13 @@
         <li><strong>Temperatura:</strong> hot</li>
         <li><strong>Riesgo stale:</strong> low</li>
         <li><strong>Repos:</strong> 1</li>
-        <li><strong>Score:</strong> 45 (confianza 0.95)</li>
+        <li><strong>Score:</strong> 42 (confianza 0.95)</li>
         <li><strong>Próxima acción:</strong> definir si el sitio queda como CV o pivotea a sitio de consultoría</li>
         <li><strong>Bloqueos:</strong> [object Object]</li>
       </ul>
       <details>
         <summary>Razones</summary>
-        <ul><li>última actualización humana hace 0 día(s)</li><li>última actividad de repo hace 0 día(s)</li><li>1 bloqueo(s) declarado(s)</li><li>requiere decisión</li><li>tiene próxima acción definida</li></ul>
+        <ul><li>última actualización humana hace 1 día(s)</li><li>última actividad de repo hace 1 día(s)</li><li>1 bloqueo(s) declarado(s)</li><li>requiere decisión</li><li>tiene próxima acción definida</li></ul>
       </details>
       
     </section>
@@ -724,7 +755,7 @@
         <span>·</span>
         <span>40%</span>
         <span>·</span>
-        <span class="freshness-warm">warm</span>
+        <span class="freshness-stale">stale</span>
       </div>
       <div class="progress"><span style="width:40%"></span></div>
       <small class="next-action">ejecutar un run real controlado y verificar el output generado de punta a punta</small>
@@ -744,7 +775,7 @@
         <span>·</span>
         <span>60%</span>
         <span>·</span>
-        <span class="freshness-warm">warm</span>
+        <span class="freshness-stale">stale</span>
       </div>
       <div class="progress"><span style="width:60%"></span></div>
       <small class="next-action">probar el planner sobre más blueprints reales y ajustar defaults según resultados</small>
@@ -764,7 +795,7 @@
         <span>·</span>
         <span>20%</span>
         <span>·</span>
-        <span class="freshness-warm">warm</span>
+        <span class="freshness-stale">stale</span>
       </div>
       <div class="progress"><span style="width:20%"></span></div>
       <small class="next-action">implementar el skeleton técnico mínimo del MVP y fijar contratos operativos iniciales</small>
@@ -784,7 +815,7 @@
         <span>·</span>
         <span>55%</span>
         <span>·</span>
-        <span class="freshness-warm">warm</span>
+        <span class="freshness-stale">stale</span>
       </div>
       <div class="progress"><span style="width:55%"></span></div>
       <small class="next-action">auditar el mensaje principal del sitio y priorizar mejoras concretas de conversión</small>
@@ -797,10 +828,30 @@
         <div class="kanban-col" data-col="test">
           <header class="kanban-col-header">
             <strong>Test</strong>
-            <span class="count">3</span>
+            <span class="count">4</span>
           </header>
           <div class="kanban-cards">
             
+    <article class="mini-card yellow cat-it" data-category="it">
+      <div class="row between">
+        <strong>AgenteIT</strong>
+        <span class="row" style="gap:4px;">
+          
+          <span class="pill small">high</span>
+        </span>
+      </div>
+      <div class="mini-meta">
+        <span>large</span>
+        <span>·</span>
+        <span>75%</span>
+        <span>·</span>
+        <span class="freshness-fresh">fresh</span>
+      </div>
+      <div class="progress"><span style="width:75%"></span></div>
+      <small class="next-action">correr el primer deploy controlado en un VPS de testing y capturar hallazgos</small>
+      <small class="blockers">⚠ 1 bloqueo(s)</small>
+    </article>
+  
     <article class="mini-card green cat-it" data-category="it">
       <div class="row between">
         <strong>Cocina Media Center</strong>
@@ -814,7 +865,7 @@
         <span>·</span>
         <span>85%</span>
         <span>·</span>
-        <span class="freshness-warm">warm</span>
+        <span class="freshness-stale">stale</span>
       </div>
       <div class="progress"><span style="width:85%"></span></div>
       <small class="next-action">verificar periódicamente el estado desplegado y capturar cualquier mejora chica de operabilidad</small>
@@ -834,7 +885,7 @@
         <span>·</span>
         <span>75%</span>
         <span>·</span>
-        <span class="freshness-warm">warm</span>
+        <span class="freshness-stale">stale</span>
       </div>
       <div class="progress"><span style="width:75%"></span></div>
       <small class="next-action">revisar la sección de proyectos y alinear el portfolio con el estado actual del resto de iniciativas</small>
@@ -854,7 +905,7 @@
         <span>·</span>
         <span>70%</span>
         <span>·</span>
-        <span class="freshness-warm">warm</span>
+        <span class="freshness-stale">stale</span>
       </div>
       <div class="progress"><span style="width:70%"></span></div>
       <small class="next-action">contrastar blueprints generados contra proyectos reales y cerrar gaps de implementación repetidos</small>
@@ -974,29 +1025,29 @@
       <div class="chart-card">
         <h3>Peso por proyecto (effort)</h3>
         <div class="chart-body">
-          <svg viewBox="0 0 220 220" width="220" height="220" class="pie"><path d="M110,110 L110,8 A102,102 0 0,1 188.73549839346472,45.15617768258325 Z" fill="#fb923c" stroke="#0b1020" stroke-width="1"><title>Nexus Operator: 8</title></path><path d="M110,110 L188.73549839346472,45.15617768258325 A102,102 0 0,1 211.0332526330253,95.98993710252236 Z" fill="#60a5fa" stroke="#0b1020" stroke-width="1"><title>CareerOps: 5</title></path><path d="M110,110 L211.0332526330253,95.98993710252236 A102,102 0 0,1 203.40887931881588,150.97293331460287 Z" fill="#a78bfa" stroke="#0b1020" stroke-width="1"><title>Cocina Media Center: 5</title></path><path d="M110,110 L203.40887931881588,150.97293331460287 A102,102 0 0,1 168.12042186604717,193.821337152975 Z" fill="#84cc16" stroke="#0b1020" stroke-width="1"><title>The Architect: 5</title></path><path d="M110,110 L168.12042186604717,193.821337152975 A102,102 0 0,1 115.61895155629828,211.84511467619825 Z" fill="#94a3b8" stroke="#0b1020" stroke-width="1"><title>Copiloto Infra Proactivo: 5</title></path><path d="M110,110 L115.61895155629828,211.84511467619825 A102,102 0 0,1 61.4533659102185,199.70632262306188 Z" fill="#06b6d4" stroke="#0b1020" stroke-width="1"><title>Cursify: 5</title></path><path d="M110,110 L61.4533659102185,199.70632262306188 A102,102 0 0,1 21.66540881398727,161.00000000000006 Z" fill="#10b981" stroke="#0b1020" stroke-width="1"><title>ML Serving Infrastructure: 5</title></path><path d="M110,110 L21.66540881398727,161.00000000000006 A102,102 0 0,1 9.891947688253381,129.55448445622136 Z" fill="#34d399" stroke="#0b1020" stroke-width="1"><title>Project Dashboard: 3</title></path><path d="M110,110 L9.891947688253381,129.55448445622136 A102,102 0 0,1 8.966747366974658,95.9899371025224 Z" fill="#fbbf24" stroke="#0b1020" stroke-width="1"><title>Assistant Tech Radar: 3</title></path><path d="M110,110 L8.966747366974658,95.9899371025224 A102,102 0 0,1 18.9900676609238,63.94359745228932 Z" fill="#f87171" stroke="#0b1020" stroke-width="1"><title>AI Effort Planner: 3</title></path><path d="M110,110 L18.9900676609238,63.94359745228932 A102,102 0 0,1 38.87572628841245,36.888183656818 Z" fill="#22d3ee" stroke="#0b1020" stroke-width="1"><title>nestorfleitas.ar: 3</title></path><path d="M110,110 L38.87572628841245,36.888183656818 A102,102 0 0,1 66.4688035793668,17.75556960884711 Z" fill="#f472b6" stroke="#0b1020" stroke-width="1"><title>nexus-ai.lat: 3</title></path><path d="M110,110 L66.4688035793668,17.75556960884711 A102,102 0 0,1 87.69452869694965,10.46876897200157 Z" fill="#facc15" stroke="#0b1020" stroke-width="1"><title>Homelab Config Backup: 2</title></path><path d="M110,110 L87.69452869694965,10.46876897200157 A102,102 0 0,1 109.99999999999997,8 Z" fill="#ef4444" stroke="#0b1020" stroke-width="1"><title>Nestor Consulting Web: 2</title></path></svg>
-          <ul class="legend"><li><span class="swatch" style="background:#fb923c"></span><span class="legend-label">Nexus Operator</span><span class="legend-value">8 (14.0%)</span></li><li><span class="swatch" style="background:#60a5fa"></span><span class="legend-label">CareerOps</span><span class="legend-value">5 (8.8%)</span></li><li><span class="swatch" style="background:#a78bfa"></span><span class="legend-label">Cocina Media Center</span><span class="legend-value">5 (8.8%)</span></li><li><span class="swatch" style="background:#84cc16"></span><span class="legend-label">The Architect</span><span class="legend-value">5 (8.8%)</span></li><li><span class="swatch" style="background:#94a3b8"></span><span class="legend-label">Copiloto Infra Proactivo</span><span class="legend-value">5 (8.8%)</span></li><li><span class="swatch" style="background:#06b6d4"></span><span class="legend-label">Cursify</span><span class="legend-value">5 (8.8%)</span></li><li><span class="swatch" style="background:#10b981"></span><span class="legend-label">ML Serving Infrastructure</span><span class="legend-value">5 (8.8%)</span></li><li><span class="swatch" style="background:#34d399"></span><span class="legend-label">Project Dashboard</span><span class="legend-value">3 (5.3%)</span></li><li><span class="swatch" style="background:#fbbf24"></span><span class="legend-label">Assistant Tech Radar</span><span class="legend-value">3 (5.3%)</span></li><li><span class="swatch" style="background:#f87171"></span><span class="legend-label">AI Effort Planner</span><span class="legend-value">3 (5.3%)</span></li><li><span class="swatch" style="background:#22d3ee"></span><span class="legend-label">nestorfleitas.ar</span><span class="legend-value">3 (5.3%)</span></li><li><span class="swatch" style="background:#f472b6"></span><span class="legend-label">nexus-ai.lat</span><span class="legend-value">3 (5.3%)</span></li><li><span class="swatch" style="background:#facc15"></span><span class="legend-label">Homelab Config Backup</span><span class="legend-value">2 (3.5%)</span></li><li><span class="swatch" style="background:#ef4444"></span><span class="legend-label">Nestor Consulting Web</span><span class="legend-value">2 (3.5%)</span></li></ul>
+          <svg viewBox="0 0 220 220" width="220" height="220" class="pie"><path d="M110,110 L110,8 A102,102 0 0,1 183.92886429737024,39.72537425427997 Z" fill="#22d3ee" stroke="#0b1020" stroke-width="1"><title>Nexus Operator: 8</title></path><path d="M110,110 L183.92886429737024,39.72537425427997 A102,102 0 0,1 208.74386612435285,84.4334417096105 Z" fill="#60a5fa" stroke="#0b1020" stroke-width="1"><title>CareerOps: 5</title></path><path d="M110,110 L208.74386612435285,84.4334417096105 A102,102 0 0,1 208.74386612435285,135.5665582903895 Z" fill="#fbbf24" stroke="#0b1020" stroke-width="1"><title>AgenteIT: 5</title></path><path d="M110,110 L208.74386612435285,135.5665582903895 A102,102 0 0,1 183.92886429737024,180.27462574572002 Z" fill="#fb923c" stroke="#0b1020" stroke-width="1"><title>Cocina Media Center: 5</title></path><path d="M110,110 L183.92886429737024,180.27462574572002 A102,102 0 0,1 140.53503854328252,207.322204152805 Z" fill="#facc15" stroke="#0b1020" stroke-width="1"><title>The Architect: 5</title></path><path d="M110,110 L140.53503854328252,207.322204152805 A102,102 0 0,1 89.46755095095669,209.91205400775442 Z" fill="#06b6d4" stroke="#0b1020" stroke-width="1"><title>Copiloto Infra Proactivo: 5</title></path><path d="M110,110 L89.46755095095669,209.91205400775442 A102,102 0 0,1 43.56000676233336,187.3933285146647 Z" fill="#10b981" stroke="#0b1020" stroke-width="1"><title>Cursify: 5</title></path><path d="M110,110 L43.56000676233336,187.3933285146647 A102,102 0 0,1 14.349282520997775,145.42513579017162 Z" fill="#ef4444" stroke="#0b1020" stroke-width="1"><title>ML Serving Infrastructure: 5</title></path><path d="M110,110 L14.349282520997775,145.42513579017162 A102,102 0 0,1 8.130916268552625,115.1662152215487 Z" fill="#34d399" stroke="#0b1020" stroke-width="1"><title>Project Dashboard: 3</title></path><path d="M110,110 L8.130916268552625,115.1662152215487 A102,102 0 0,1 11.256133875647151,84.43344170961055 Z" fill="#f87171" stroke="#0b1020" stroke-width="1"><title>Assistant Tech Radar: 3</title></path><path d="M110,110 L11.256133875647151,84.43344170961055 A102,102 0 0,1 23.438285735535402,56.045670946649835 Z" fill="#a78bfa" stroke="#0b1020" stroke-width="1"><title>AI Effort Planner: 3</title></path><path d="M110,110 L23.438285735535402,56.045670946649835 A102,102 0 0,1 43.56000676233329,32.60667148533537 Z" fill="#f472b6" stroke="#0b1020" stroke-width="1"><title>nestorfleitas.ar: 3</title></path><path d="M110,110 L43.56000676233329,32.60667148533537 A102,102 0 0,1 69.77570277844148,16.26630321473648 Z" fill="#84cc16" stroke="#0b1020" stroke-width="1"><title>nexus-ai.lat: 3</title></path><path d="M110,110 L69.77570277844148,16.26630321473648 A102,102 0 0,1 89.46755095095665,10.087945992245565 Z" fill="#94a3b8" stroke="#0b1020" stroke-width="1"><title>Homelab Config Backup: 2</title></path><path d="M110,110 L89.46755095095665,10.087945992245565 A102,102 0 0,1 109.99999999999997,8 Z" fill="#8b5cf6" stroke="#0b1020" stroke-width="1"><title>Nestor Consulting Web: 2</title></path></svg>
+          <ul class="legend"><li><span class="swatch" style="background:#22d3ee"></span><span class="legend-label">Nexus Operator</span><span class="legend-value">8 (12.9%)</span></li><li><span class="swatch" style="background:#60a5fa"></span><span class="legend-label">CareerOps</span><span class="legend-value">5 (8.1%)</span></li><li><span class="swatch" style="background:#fbbf24"></span><span class="legend-label">AgenteIT</span><span class="legend-value">5 (8.1%)</span></li><li><span class="swatch" style="background:#fb923c"></span><span class="legend-label">Cocina Media Center</span><span class="legend-value">5 (8.1%)</span></li><li><span class="swatch" style="background:#facc15"></span><span class="legend-label">The Architect</span><span class="legend-value">5 (8.1%)</span></li><li><span class="swatch" style="background:#06b6d4"></span><span class="legend-label">Copiloto Infra Proactivo</span><span class="legend-value">5 (8.1%)</span></li><li><span class="swatch" style="background:#10b981"></span><span class="legend-label">Cursify</span><span class="legend-value">5 (8.1%)</span></li><li><span class="swatch" style="background:#ef4444"></span><span class="legend-label">ML Serving Infrastructure</span><span class="legend-value">5 (8.1%)</span></li><li><span class="swatch" style="background:#34d399"></span><span class="legend-label">Project Dashboard</span><span class="legend-value">3 (4.8%)</span></li><li><span class="swatch" style="background:#f87171"></span><span class="legend-label">Assistant Tech Radar</span><span class="legend-value">3 (4.8%)</span></li><li><span class="swatch" style="background:#a78bfa"></span><span class="legend-label">AI Effort Planner</span><span class="legend-value">3 (4.8%)</span></li><li><span class="swatch" style="background:#f472b6"></span><span class="legend-label">nestorfleitas.ar</span><span class="legend-value">3 (4.8%)</span></li><li><span class="swatch" style="background:#84cc16"></span><span class="legend-label">nexus-ai.lat</span><span class="legend-value">3 (4.8%)</span></li><li><span class="swatch" style="background:#94a3b8"></span><span class="legend-label">Homelab Config Backup</span><span class="legend-value">2 (3.2%)</span></li><li><span class="swatch" style="background:#8b5cf6"></span><span class="legend-label">Nestor Consulting Web</span><span class="legend-value">2 (3.2%)</span></li></ul>
         </div>
       </div>
       <div class="chart-card">
         <h3>Distribución por stage</h3>
         <div class="chart-body">
-          <svg viewBox="0 0 220 220" width="220" height="220" class="pie"><path d="M110,110 L110,8 A102,102 0 1,1 30.25318878826097,173.59595978959084 Z" fill="#34d399" stroke="#0b1020" stroke-width="1"><title>active: 9</title></path><path d="M110,110 L30.25318878826097,173.59595978959084 A102,102 0 0,1 10.557352957453986,87.30286473645594 Z" fill="#22d3ee" stroke="#0b1020" stroke-width="1"><title>maintenance: 2</title></path><path d="M110,110 L10.557352957453986,87.30286473645594 A102,102 0 0,1 30.253188788260942,46.40404021040919 Z" fill="#60a5fa" stroke="#0b1020" stroke-width="1"><title>idea: 1</title></path><path d="M110,110 L30.253188788260942,46.40404021040919 A102,102 0 0,1 65.74385861000906,18.101175473953262 Z" fill="#fbbf24" stroke="#0b1020" stroke-width="1"><title>paused: 1</title></path><path d="M110,110 L65.74385861000906,18.101175473953262 A102,102 0 0,1 109.99999999999997,8 Z" fill="#a78bfa" stroke="#0b1020" stroke-width="1"><title>done: 1</title></path></svg>
-          <ul class="legend"><li><span class="swatch" style="background:#34d399"></span><span class="legend-label">active</span><span class="legend-value">9 (64.3%)</span></li><li><span class="swatch" style="background:#22d3ee"></span><span class="legend-label">maintenance</span><span class="legend-value">2 (14.3%)</span></li><li><span class="swatch" style="background:#60a5fa"></span><span class="legend-label">idea</span><span class="legend-value">1 (7.1%)</span></li><li><span class="swatch" style="background:#fbbf24"></span><span class="legend-label">paused</span><span class="legend-value">1 (7.1%)</span></li><li><span class="swatch" style="background:#a78bfa"></span><span class="legend-label">done</span><span class="legend-value">1 (7.1%)</span></li></ul>
+          <svg viewBox="0 0 220 220" width="220" height="220" class="pie"><path d="M110,110 L110,8 A102,102 0 1,1 50.04590426616775,192.51973342624464 Z" fill="#34d399" stroke="#0b1020" stroke-width="1"><title>active: 9</title></path><path d="M110,110 L50.04590426616775,192.51973342624464 A102,102 0 0,1 8.558766672436121,120.66190325330074 Z" fill="#22d3ee" stroke="#0b1020" stroke-width="1"><title>maintenance: 2</title></path><path d="M110,110 L8.558766672436121,120.66190325330074 A102,102 0 0,1 12.992235337894328,78.48026657375539 Z" fill="#fbbf24" stroke="#0b1020" stroke-width="1"><title>testing: 1</title></path><path d="M110,110 L12.992235337894328,78.48026657375539 A102,102 0 0,1 34.19922780130581,41.74867815139643 Z" fill="#60a5fa" stroke="#0b1020" stroke-width="1"><title>idea: 1</title></path><path d="M110,110 L34.19922780130581,41.74867815139643 A102,102 0 0,1 68.51286240626838,16.818363320454694 Z" fill="#fbbf24" stroke="#0b1020" stroke-width="1"><title>paused: 1</title></path><path d="M110,110 L68.51286240626838,16.818363320454694 A102,102 0 0,1 109.99999999999997,8 Z" fill="#a78bfa" stroke="#0b1020" stroke-width="1"><title>done: 1</title></path></svg>
+          <ul class="legend"><li><span class="swatch" style="background:#34d399"></span><span class="legend-label">active</span><span class="legend-value">9 (60.0%)</span></li><li><span class="swatch" style="background:#22d3ee"></span><span class="legend-label">maintenance</span><span class="legend-value">2 (13.3%)</span></li><li><span class="swatch" style="background:#fbbf24"></span><span class="legend-label">testing</span><span class="legend-value">1 (6.7%)</span></li><li><span class="swatch" style="background:#60a5fa"></span><span class="legend-label">idea</span><span class="legend-value">1 (6.7%)</span></li><li><span class="swatch" style="background:#fbbf24"></span><span class="legend-label">paused</span><span class="legend-value">1 (6.7%)</span></li><li><span class="swatch" style="background:#a78bfa"></span><span class="legend-label">done</span><span class="legend-value">1 (6.7%)</span></li></ul>
         </div>
       </div>
       <div class="chart-card">
         <h3>Distribución por prioridad</h3>
         <div class="chart-body">
-          <svg viewBox="0 0 220 220" width="220" height="220" class="pie"><path d="M110,110 L110,8 A102,102 0 0,1 154.25614138999094,201.89882452604672 Z" fill="#f87171" stroke="#0b1020" stroke-width="1"><title>high: 6</title></path><path d="M110,110 L154.25614138999094,201.89882452604672 A102,102 0 0,1 10.557352957453986,132.69713526354408 Z" fill="#fbbf24" stroke="#0b1020" stroke-width="1"><title>medium: 4</title></path><path d="M110,110 L10.557352957453986,132.69713526354408 A102,102 0 0,1 109.99999999999997,8 Z" fill="#94a3b8" stroke="#0b1020" stroke-width="1"><title>low: 4</title></path></svg>
-          <ul class="legend"><li><span class="swatch" style="background:#f87171"></span><span class="legend-label">high</span><span class="legend-value">6 (42.9%)</span></li><li><span class="swatch" style="background:#fbbf24"></span><span class="legend-label">medium</span><span class="legend-value">4 (28.6%)</span></li><li><span class="swatch" style="background:#94a3b8"></span><span class="legend-label">low</span><span class="legend-value">4 (28.6%)</span></li></ul>
+          <svg viewBox="0 0 220 220" width="220" height="220" class="pie"><path d="M110,110 L110,8 A102,102 0 0,1 131.20699246341144,209.77105527484818 Z" fill="#f87171" stroke="#0b1020" stroke-width="1"><title>high: 7</title></path><path d="M110,110 L131.20699246341144,209.77105527484818 A102,102 0 0,1 8.558766672436121,120.66190325330074 Z" fill="#fbbf24" stroke="#0b1020" stroke-width="1"><title>medium: 4</title></path><path d="M110,110 L8.558766672436121,120.66190325330074 A102,102 0 0,1 109.99999999999997,8 Z" fill="#94a3b8" stroke="#0b1020" stroke-width="1"><title>low: 4</title></path></svg>
+          <ul class="legend"><li><span class="swatch" style="background:#f87171"></span><span class="legend-label">high</span><span class="legend-value">7 (46.7%)</span></li><li><span class="swatch" style="background:#fbbf24"></span><span class="legend-label">medium</span><span class="legend-value">4 (26.7%)</span></li><li><span class="swatch" style="background:#94a3b8"></span><span class="legend-label">low</span><span class="legend-value">4 (26.7%)</span></li></ul>
         </div>
       </div>
       <div class="chart-card">
         <h3>Distribución por health</h3>
         <div class="chart-body">
-          <svg viewBox="0 0 220 220" width="220" height="220" class="pie"><path d="M110,110 L110,8 A102,102 0 1,1 30.25318878826097,173.59595978959084 Z" fill="#34d399" stroke="#0b1020" stroke-width="1"><title>green: 9</title></path><path d="M110,110 L30.25318878826097,173.59595978959084 A102,102 0 0,1 109.99999999999997,8 Z" fill="#fbbf24" stroke="#0b1020" stroke-width="1"><title>yellow: 5</title></path></svg>
-          <ul class="legend"><li><span class="swatch" style="background:#34d399"></span><span class="legend-label">green</span><span class="legend-value">9 (64.3%)</span></li><li><span class="swatch" style="background:#fbbf24"></span><span class="legend-label">yellow</span><span class="legend-value">5 (35.7%)</span></li></ul>
+          <svg viewBox="0 0 220 220" width="220" height="220" class="pie"><path d="M110,110 L110,8 A102,102 0 1,1 50.04590426616775,192.51973342624464 Z" fill="#34d399" stroke="#0b1020" stroke-width="1"><title>green: 9</title></path><path d="M110,110 L50.04590426616775,192.51973342624464 A102,102 0 0,1 109.99999999999997,8 Z" fill="#fbbf24" stroke="#0b1020" stroke-width="1"><title>yellow: 6</title></path></svg>
+          <ul class="legend"><li><span class="swatch" style="background:#34d399"></span><span class="legend-label">green</span><span class="legend-value">9 (60.0%)</span></li><li><span class="swatch" style="background:#fbbf24"></span><span class="legend-label">yellow</span><span class="legend-value">6 (40.0%)</span></li></ul>
         </div>
       </div>
       <div class="chart-card full">
@@ -1024,6 +1075,14 @@
           <span class="progress-bar-value">85%</span>
         </div>
         <div class="progress-bar"><span style="width:85%; background:#34d399;"></span></div>
+      </li>
+    
+      <li>
+        <div class="progress-bar-row">
+          <span class="progress-bar-label">AgenteIT</span>
+          <span class="progress-bar-value">75%</span>
+        </div>
+        <div class="progress-bar"><span style="width:75%; background:#fbbf24;"></span></div>
       </li>
     
       <li>
